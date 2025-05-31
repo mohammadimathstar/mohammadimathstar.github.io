@@ -1,11 +1,11 @@
 {
-  "name": "Your Name",
+  "name": "Mohammad Mohammadi",
   "label": "Optional Label",
   "image_path": "img/default-image.png",
   "contact": {
-    "email": "FirstLast@Sample.com",
-    "phone": "123-456-7890",
-    "location": "City, State, Country"
+    "email": "mohammadimathstar@gmail.com",
+    "phone": "0618-60-3334",
+    "location": "Groningen, The Netherlands"
   },
   "summary": "A short summary of who you are, your background, experience, and interests to give visitors a quick introduction to you.",
   "base_url": "127.0.0.1:5500",
