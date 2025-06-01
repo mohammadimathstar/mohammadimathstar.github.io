@@ -11,12 +11,12 @@
   "base_url": "127.0.0.1:5500",
   "social_links": [
     {
-      "label": "Personal Website",
+      "label": "Hello: Personal Website",
       "url": "https://sample.com",
       "svg_path": "img/globe.svg"
     },
     {
-      "label": "First Social",
+      "label": "Hello:First Social",
       "url": "https://sample.com",
       "svg_path": "img/linkedin.svg"
     },
@@ -28,7 +28,7 @@
   ],
   "work_experience": [
     {
-      "company": "Latest Job",
+      "company": "RUG",
       "position": "Position One",
       "url": "https://sample.com",
       "start_date": "01/01/2020",

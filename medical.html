@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brain Tumor Classifier App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      margin-top: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Brain Tumor Classifier App</h1>
+
+  <p>
+    The <a href="https://github.com/mohammadimathstar/BrainTumorApp" target="_blank">Brain Tumor Classifier App</a>
+    is a machine learning-powered web application that classifies MRI brain images as either containing a tumor or not.
+    Built using PyTorch and Flask, this tool provides a simple interface for healthcare practitioners or researchers
+    to analyze brain MRI scans using pre-trained deep learning models.
+  </p>
+
+  <h2>Key Highlights:</h2>
+  <ul>
+    <li><strong>High Accuracy:</strong> The model achieves approximately 99.7% accuracy in classifying brain tumors.</li>
+    <li><strong>Model Explainability:</strong> Incorporates explainability features to help users understand the model's predictions.</li> 
+    <li><strong>Deep Learning Integration:</strong> Leverages a convolutional neural network (CNN) trained on MRI image data.</li>
+    <li><strong>Flask Web App:</strong> User-friendly interface to upload an MRI image and receive a prediction in real time.</li>
+    <li><strong>Image Preprocessing:</strong> Includes custom preprocessing steps such as resizing, normalization, and conversion to tensors.</li>
+    <li><strong>Pre-trained Weights:</strong> Uses saved PyTorch weights (<code>brain_model.pt</code>) for fast and accurate predictions.</li>
+    <li><strong>OpenCV & Torch:</strong> Integrates essential libraries for image handling and neural network inference.</li>               
+  </ul>
+
+
+    <div class="mri-figure">
+        
+        <figure>
+            <img width="600"
+                src="img/mri.png"
+                alt="Image Caption 1">
+            <!-- <figcaption>An example</figcaption> -->
+        </figure>
+        
+    </div>
+
+</body>
+</html>
