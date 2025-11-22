@@ -226,6 +226,8 @@ body.light-mode .navbar {
     height: 350px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center -10px;
+    /* Shift image up */
     border: 4px solid var(--bg-secondary);
     box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
 }
