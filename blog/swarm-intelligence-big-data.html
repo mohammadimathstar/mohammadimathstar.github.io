@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining the Universe - Mohammad Mohammadi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MM</div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../index.html#blog" class="nav-btn active">Back to Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section active" style="display: block; padding-top: 80px;">
+        <div class="markdown-body">
+            <h1>From Cosmos to Code: Swarm Intelligence for Big Data</h1>
+            <p class="blog-date">November 10, 2023 | Category: Big Data / Algorithms / Optimization</p>
+
+            <img src="../img/galaxy.png" alt="Cosmic Web"
+                style="width:100%; max-height: 400px; object-fit: cover; border-radius: 16px; margin: 2rem 0;">
+
+            <h2>The Industry Challenge</h2>
+            <p>Whether it's mapping the universe, optimizing a supply chain, or tracing neurons in a medical scan, the
+                problem is often the same: <strong>finding structure in noisy, massive datasets.</strong> Traditional
+                algorithms (like standard clustering) often fail when data is sparse, noisy, or filamentary
+                (thread-like).</p>
+            <p><strong>The Problem:</strong> How do we detect complex, connected structures in terabytes of noisy data
+                where standard density-based methods fail?</p>
+
+            <h2>My Solution: Bio-Inspired Algorithms</h2>
+            <p>In my work <em>"Swarm-intelligence-based extraction... along the Large-Scale Structure"</em>, I looked to
+                nature for a solution. I adapted <strong>Ant Colony Optimization (ACO)</strong>—the way ants find
+                food—to data mining.</p>
+
+            <h3>The "Manifold Crawling" Algorithm</h3>
+            <p>I developed a novel algorithm where autonomous "agents" (digital ants) explore the dataset.</p>
+            <ol>
+                <li><strong>Sensing:</strong> Agents sense the local density of data points.</li>
+                <li><strong>Pheromones:</strong> When an agent finds a high-density region (a structure), it deposits a
+                    digital pheromone.</li>
+                <li><strong>Reinforcement:</strong> Other agents are attracted to the pheromone, reinforcing the path.
+                </li>
+            </ol>
+
+            <h3>Key Innovations</h3>
+            <ul>
+                <li><strong>Noise Robustness:</strong> Random noise doesn't attract enough agents to create a stable
+                    path, effectively filtering it out automatically.</li>
+                <li><strong>Scalability:</strong> The algorithm is inherently parallelizable. Millions of agents can run
+                    on distributed systems (Spark/Hadoop) to process petabytes of data.</li>
+            </ul>
+
+            <h2>Business Impact & Applications</h2>
+            <p>While I applied this to Astronomy, the <strong>transferable value</strong> to industry is immense:</p>
+            <ul>
+                <li><strong>Logistics & Routing:</strong> Optimizing delivery routes in dynamic, noisy traffic
+                    environments (similar to finding paths in noisy data).</li>
+                <li><strong>Medical Imaging:</strong> Automatically tracing blood vessels or nerves in 3D MRI scans
+                    where contrast is poor.</li>
+                <li><strong>Network Security:</strong> Detecting "filaments" of coordinated attacks in massive server
+                    logs.</li>
+            </ul>
+
+            <h2>Tech Stack</h2>
+            <ul>
+                <li><strong>Python & C++:</strong> High-performance implementation of the agent simulation.</li>
+                <li><strong>NumPy / SciPy:</strong> Vectorized operations for speed.</li>
+                <li><strong>Parallel Computing:</strong> Designed for distributed execution.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+            <p><em>This project highlights my expertise in designing novel algorithms for noisy, unstructured data and
+                    my ability to translate bio-inspired concepts into robust software solutions.</em></p>
+        </div>
+    </main>
+
+    <script>
+        // Theme handling
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+</body>
+
+</html>

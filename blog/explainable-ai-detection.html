@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusting the Machine - Mohammad Mohammadi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MM</div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../index.html#blog" class="nav-btn active">Back to Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section active" style="display: block; padding-top: 80px;">
+        <div class="markdown-body">
+            <h1>Opening the Black Box: Explainable AI (XAI) in Computer Vision</h1>
+            <p class="blog-date">June 20, 2022 | Category: Computer Vision / XAI / AI Safety</p>
+
+            <img src="../img/mri.png" alt="MRI Scan Analysis"
+                style="width:100%; max-height: 400px; object-fit: cover; border-radius: 16px; margin: 2rem 0;">
+
+            <h2>The Industry Challenge</h2>
+            <p>Deep Learning models are now better than humans at many visual tasks, from diagnosing diseases to driving
+                cars. However, they suffer from a critical flaw: <strong>lack of transparency.</strong></p>
+            <p>If a model rejects a loan, denies an insurance claim, or misdiagnoses a patient, "the computer said so"
+                is not a legally or ethically acceptable answer.</p>
+            <p><strong>The Problem:</strong> How do we deploy high-accuracy Deep Learning models while ensuring they are
+                transparent, fair, and trustworthy?</p>
+
+            <h2>My Solution: Explainability by Design</h2>
+            <p>In my research <em>"Detection of ... using explainable AI techniques"</em>, I focused on bridging the gap
+                between <strong>Performance</strong> and <strong>Interpretability</strong>.</p>
+
+            <h3>The Approach</h3>
+            <p>I implemented a detection pipeline that doesn't just output a class label (e.g., "Tumor Detected"), but
+                also provides a <strong>visual evidence map</strong>.</p>
+            <ol>
+                <li><strong>Saliency Mapping:</strong> I used techniques like <strong>Grad-CAM</strong> and <strong>LRP
+                        (Layer-wise Relevance Propagation)</strong> to highlight exactly which pixels contributed most
+                    to the decision.</li>
+                <li><strong>Validation:</strong> We verified these heatmaps against expert knowledge. For example,
+                    ensuring the model was looking at the <em>tumor</em> and not a ruler or watermark in the background
+                    (a common source of data leakage).</li>
+            </ol>
+
+            <h3>Results</h3>
+            <ul>
+                <li><strong>Accuracy:</strong> Achieved 99.7% detection rate on the benchmark dataset.</li>
+                <li><strong>Trust:</strong> Demonstrated that the model learned valid physical features (shape,
+                    intensity) rather than spurious correlations.</li>
+            </ul>
+
+            <h2>Business Impact & ROI</h2>
+            <p>For any company deploying AI, XAI is no longer optional—it's a requirement:</p>
+            <ul>
+                <li><strong>Regulatory Compliance:</strong> Meets the "Right to Explanation" requirements of GDPR and
+                    the EU AI Act.</li>
+                <li><strong>Debugging & QA:</strong> Allows engineers to quickly identify <em>why</em> a model failed
+                    (e.g., "it confused snow for a cloud").</li>
+                <li><strong>User Adoption:</strong> Doctors and professionals will only use AI tools they trust. XAI
+                    provides that trust.</li>
+            </ul>
+
+            <h2>Tech Stack</h2>
+            <ul>
+                <li><strong>PyTorch:</strong> Deep Learning framework for model training.</li>
+                <li><strong>OpenCV:</strong> Image preprocessing and manipulation.</li>
+                <li><strong>Captum:</strong> Library for model interpretability and understanding.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+            <p><em>This project demonstrates my commitment to building <strong>Responsible AI</strong>. I don't just
+                    build models that work; I build models that are safe, transparent, and ready for real-world
+                    deployment.</em></p>
+        </div>
+    </main>
+
+    <script>
+        // Theme handling
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+</body>
+
+</html>

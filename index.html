@@ -1,693 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Site Info -->
-    <title>Your Name - Portfolio</title>
-    <meta name="description" content="Mohammad Mohammadi - PhD Data Scientist with expertise in interpretable ML models, multidisciplinary research, and AI applications in biomedical and legal domains..">
-    <meta name="author" content="Your Name">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Mohammadi - Data Scientist & ML Engineer</title>
+  <meta name="description"
+    content="Mohammad Mohammadi - PhD Data Scientist with expertise in interpretable ML models, multidisciplinary research, and AI applications.">
 
-    <!-- Open Graph Tags: The title of the page for social media sharing. It can match the title tag or be more descriptive. -->
-    <meta property="og:title" content="Your Name">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+    rel="stylesheet">
 
-    <!-- Open Graph Tags: Typically set to "website" for static sites or "article" for content-heavy pages. -->
-    <meta property="og:type" content="website">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- Open Graph Tags: The URL of the page, used to ensure link previews resolve to the correct page. -->
-    <meta property="og:url" content="127.0.0.1:5500/index.html">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+</head>
 
-    <!-- Open Graph Tags: URL of an image that represents the page. Useful for link previews. -->
-    <meta property="og:image" content="127.0.0.1:5500/img/default-image.png">
+<body>
 
-    <!-- Open Graph Tags: Provides an alternative text for the image to improve accessibility. -->
-    <meta property="og:image:alt" content="Your Name Profile Image">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">MM</div>
+      <div class="nav-links">
+        <button class="nav-btn active" data-tab="home">Home</button>
+        <button class="nav-btn" data-tab="cv">CV</button>
+        <button class="nav-btn" data-tab="projects">Projects</button>
+        <button class="nav-btn" data-tab="blog">Blog</button>
+        <button class="nav-btn" data-tab="contact">Contact</button>
+        <button id="theme-toggle" class="nav-btn" aria-label="Toggle Dark Mode">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Preconnect for Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Main Content -->
+  <main class="container">
 
-    <!-- Custom Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-          rel="stylesheet">
+    <!-- HOME SECTION -->
+    <section id="home" class="section active">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Mohammad Mohammadi</h1>
+          <p class="hero-subtitle">Data Scientist / ML Engineer</p>
+          <p>
+            PhD Data Scientist with 3+ years of experience developing AI solutions across legal, medical, and
+            cultural heritage domains.
+            Currently working on the HAICO project at Tilburg University, applying AI to national library data.
+            <!-- Featured Insight -->
+          <section class="featured-section">
+            <h2>Featured Insight</h2>
+            <div class="featured-card" onclick="window.location.href='blog/explainable-ai-detection.html'">
+              <div class="featured-content">
+                <span class="featured-label">Latest Article</span>
+                <h3>Explainable AI in Healthcare</h3>
+                <p>Discover how we can peek inside the "black box" of deep learning models to build trust in medical
+                  diagnosis.</p>
+                <span class="read-more">Read Article →</span>
+              </div>
+              <div class="featured-image-container">
+                <img src="img/mri.png" alt="Brain Tumor Classification" class="featured-img">
+              </div>
+            </div>
+          </section>
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="document.querySelector('[data-tab=\'projects\']').click()">View
+              Projects</button>
+            <button class="btn btn-secondary" onclick="document.querySelector('[data-tab=\'contact\']').click()">Contact
+              Me</button>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <img src="img/default-image.png" alt="Mohammad Mohammadi" class="hero-img">
+        </div>
+      </div>
+    </section>
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/modern_normalize.css" />
-    <link rel="stylesheet" href="css/html5bp.css">
-    <link rel="stylesheet" href="css/main.css">
+    <!-- CV SECTION -->
+    <section id="cv" class="section">
+      <h2>Work Experience</h2>
+      <div class="resume-grid">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-role">Data Scientist</span>
+              <span class="timeline-company">Tilburg University</span>
+            </div>
+            <p class="timeline-date">09/2025 - Present</p>
+            <p>Working on the HAICO project to analyze cultural heritage data from the National Library (KB).</p>
+            <ul>
+              <li>Developing AI models to enrich and explore large-scale historical datasets.</li>
+              <li>Collaborating with domain experts to unlock insights from digital heritage collections.</li>
+            </ul>
+          </div>
 
-    <!-- Set a theme color that matches your website's primary color -->
-    <meta name="theme-color" content="#fafafa">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-role">Data Scientist</span>
+              <span class="timeline-company">University of Groningen</span>
+            </div>
+            <p class="timeline-date">10/2022 - 08/2024</p>
+            <p>Collaborating with legal experts and biomedical engineers to develop and apply AI solutions in NLP and
+              computer vision.</p>
+            <ul>
+              <li>Lead interdisciplinary teams collaborating with legal experts and biomedical engineers.</li>
+              <li>Developed and deployed scalable ML pipelines for image and text classification using PyTorch, Docker,
+                DVC, and Flask.</li>
+              <li>Published high-quality research in TPAMI, Neurocomputing, and others.</li>
+              <li>Built data pipelines using Airflow and BigQuery to automate ETL processes.</li>
+            </ul>
+          </div>
 
-    <!-- Favicon for all browsers -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-role">Lecturer</span>
+              <span class="timeline-company">University of Groningen</span>
+            </div>
+            <p class="timeline-date">10/2021 - 09/2022</p>
+            <p>Taught undergraduate and graduate courses on data science and machine learning.</p>
+          </div>
 
-    <!-- Apple touch icon for iOS devices -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-role">PhD Researcher</span>
+              <span class="timeline-company">University of Groningen</span>
+            </div>
+            <p class="timeline-date">07/2017 - 09/2021</p>
+            <p>Developed novel algorithms for the detection and characterization of astronomical structures as part of
+              the SUNDIAL project.</p>
+          </div>
 
-    <!-- Web app manifest for Progressive Web Apps -->
-    <link rel="manifest" href="/site.webmanifest">
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-role">Data Scientist Intern</span>
+              <span class="timeline-company">Webfleet Solutions</span>
+            </div>
+            <p class="timeline-date">06/2019 - 07/2021</p>
+            <p>Developed predictive models leveraging telematics data in a cross-functional agile team.</p>
+          </div>
+        </div>
 
-    <!-- Content Security Policy: Uncomment to enhance security by restricting where content can be loaded from (useful for preventing certain attacks like XSS). Update if adding external sources (e.g., Google Fonts, Bootstrap CDN, analytics, etc). -->
-    <!-- <meta http-equiv="Content-Security-Policy" content=" default-src 'self'; script-src 'self' code.jquery.com; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' images.examplecdn.com; "> -->
-  </head>
+        <div class="skills-sidebar">
+          <h3>Skills Visualization</h3>
+          <div id="skills-viz"
+            style="width: 100%; height: 300px; margin-bottom: 2rem; background: var(--bg-card); border-radius: var(--radius-sm);">
+          </div>
 
-  <body>
-    <header class="page-header">
-      <div class="container">
-        <div class="header-top flex-responsive">
-          
-            <img class="header-image"
-                 width="256"
-                 height="256"
-                 src="img/default-image.png"
-                 alt="Your Name Profile Image" />
-          
-          <div class="header-info">
-            <h1>Mohammad Mohammadi</h1>
-            <h2 class="header-label">Data Scientist / ML Engineer</h2>
-            
-              <address>
-                <ul class="inline-list flex-responsive">
-                  
-                    <li>
-                      <a href="mailto:mohammadimathstar@gmail.com">mohammadimathstar@gmail.com</a>
-                    </li>
-                  
-                  
-                    <li>
-                      <a href="tel:+1234567890">061-860-3334</a>
-                    </li>
-                  
-                  <li>Groningen, The Netherlands</li>
-                </ul>
-              </address>
-            
-            
-              <ul class="inline-list flex-responsive">
-                
-                  <!-- <li>
-                    <a href="https://sample.com"
-                       rel="noopener noreferrer"
-                       aria-label="Personal Website"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
+          <h3>Technical Skills</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">NLP (spaCy, HuggingFace)</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">MLflow</span>
+            <span class="skill-tag">Airflow</span>
+            <span class="skill-tag">SQL (PostgreSQL)</span>
+            <span class="skill-tag">AWS / Azure</span>
+          </div>
 
-                      Personal Website
-                    </a>
-                  </li> -->
-                
-                  <li>
-                    <a href="https://www.linkedin.com/in/mohammad-mohammadi-med/"
-                       rel="noopener noreferrer"
-                       aria-label="First Social"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-linkedin"
-     viewBox="0 0 16 16">
-  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-</svg>
+          <h3 style="margin-top: 2rem;">Education</h3>
+          <div class="education-item">
+            <h4>PhD in Data Science</h4>
+            <p>University of Groningen</p>
+          </div>
+          <div class="education-item" style="margin-top: 1rem;">
+            <h4>M.Sc. Applied Mathematics</h4>
+            <p>Mittweida University</p>
+          </div>
 
-                      Linkedin
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://github.com/mohammadimathstar"
-                       rel="noopener noreferrer"
-                       aria-label="Second Social"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-github"
-     viewBox="0 0 16 16">
-  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-</svg>
+          <h3 style="margin-top: 2rem;">Languages</h3>
+          <div class="skills-list">
+            <span class="skill-tag">English (Native/Fluent)</span>
+            <span class="skill-tag">Dutch (Intermediate)</span>
+            <span class="skill-tag">Persian (Native)</span>
+          </div>
 
-                      Github
-                    </a>
-                  </li>
-                
-              </ul>
-            <p class="header-summary"></p><strong>Data scientist/ML Engineer</strong> with a PhD in Data Science and <strong>3+ years</strong> of experience developing
-AI solutions across legal, medical, and astronomical domains. Experienced in designing scalable and reproducible <strong>AI pipelines</strong> using PyTorch, Flask, MLflow,
-and Docker. Skilled in <strong>statistical modeling, NLP, and computer vision</strong> with applications ranging
-from astronomical data to legal documents. Experienced working in multidisciplinary teams, translating technical concepts for non-technical stakeholders, such
-as legal experts.</p>
-            <!-- <p class="header-summary">PhD Data Scientist with expertise in interpretable ML models, multidisciplinary research, and AI applications in biomedical and legal domains.</p> -->
-            <!-- <p class="header-summary">PhD Data Scientist at University of Groningen with expertise in developing interpretable AI models for biomedical and legal applications. Experienced in multidisciplinary collaboration, teaching, and building scalable ML tools.</p> -->
+          <h3 style="margin-top: 2rem;">Interests</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Biking in Nature</span>
+            <span class="skill-tag">Table Tennis</span>
+            <span class="skill-tag">Photography</span>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <div class="page-content">
-      <div class="container">
-        <main>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <h2>Highlighted Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card"
+          onclick="openModal('Brain Tumor Classification', 'img/mri.png', 'A Flask-based web application for diagnosing brain tumors using MRI scans with 99.7% accuracy and explainability features.', 'https://github.com/mohammadimathstar/BrainTumorApp', 'medical.html')">
+          <img src="img/mri.png" alt="Brain Tumor Classification" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">Brain Tumor Classification</h3>
+            <p>A Flask-based web application for diagnosing brain tumors using MRI scans with 99.7% accuracy and
+              explainability features.</p>
+            <div class="project-links">
+              <span class="project-link">View Details</span>
+            </div>
+          </div>
+        </div>
 
-          <section>
-              <h2 class="section-heading"><strong>Highlighted Projects</strong></h2>
+        <!-- Project 2 -->
+        <div class="project-card"
+          onclick="openModal('Legal Case Classification', 'img/case-predictor.png', 'Predicting legal case categories (housing vs. eviction) using NLP, featuring model interpretability for legal professionals.', 'https://github.com/mohammadimathstar/legal-case-predictor-app', 'legal.html')">
+          <img src="img/case-predictor.png" alt="Legal Case Classification" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">Legal Case Classification</h3>
+            <p>Predicting legal case categories (housing vs. eviction) using NLP, featuring model interpretability for
+              legal professionals.</p>
+            <div class="project-links">
+              <span class="project-link">View Details</span>
+            </div>
+          </div>
+        </div>
 
-          <div class="gallery main-gallery">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/court.png"
-                               alt="Image Caption 1">
-                          <figcaption><a href="legal.html">Legal</a></figcaption>
-                        </figure>
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/brain.png"
-                               alt="Image Caption 2">
-                          <figcaption><a href="medical.html">Medical</a></figcaption>
-                        </figure>
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/galaxy.png"
-                               alt="Image Caption 3">
-                          <figcaption>Astronomy</figcaption>
-                        </figure>
-                      
-                </div>
-
-          </section>
-          
-            <section>
-              <h2 class="section-heading"><strong>Work Experience</strong></h2>
-              
-                <section>
-                  <h3>
-                    
-                      <strong>Data Scientist</strong> at <a href="https://www.rug.nl">University of Groningen</a>
-                    
-                  </h3>
-                  
-                    <p class="section-label">10/2022 - Present</p>
-                  <p>Collaborated with legal experts and biomedical engineers to develop and apply
-AI solutions in NLP and computer vision.</p>
-                  <!-- <p>Conduct interdisciplinary research in data science and machine learning with a focus on interpretable models and applications in biomedical imaging and legal document classification.</p> -->
-                  
-                    <ul>
-                      <li>Lead interdisciplinary teams collaborating with legal experts, and biomedical engineers</li>
-                      <li>Developed and deployed scalable <strong>ML pipelines</strong> for image and text classification using PyTorch, Docker, DVC, and Flask (check Highlighted Projects)</li>
-                      <!-- <li>Designed transparent classifiers for brain tumor MRI and legal document classification</li> -->
-                      <li>Published high-quality research in TPAMI, Neurocomputing, and others</li>
-                      <li>Conducted AI training sessions for legal experts</li>
-                      <li>Built a data pipeline using Airflow and BigQuery to automate <strong>ETL</strong> processes; performed exploratory data analysis (EDA) using SQL (PostgreSQL) and Pandas</li>
-                    </ul>
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      <strong>Lecturer</strong> at <a href="https://www.rug.nl">University of Groningen</a>
-                    
-                  </h3>
-                  
-                    <p class="section-label">10/2021 - 09/2022</p>
-                  
-                  <p>Taught undergraduate and graduate courses on data science and machine learning.</p>
-                  <ul>
-                    <li>Delivered lectures on AI concepts and practical ML applications: Neural Networks and Computational Intelligence, Introduction to Data Science, Introduction to Machine Learning, Introduction to Scientific Computing.</li>
-                    <li>Supervised three bachelor and master students in AI projects</li>
-                    <!-- <li>Provided training and support as Teaching Assistant for research software and AI tools</li> -->
-                  </ul>
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    
-                      <strong>PhD</strong> at <a href="https://www.rug.nl">University of Groningen</a>
-                    
-                  </h3>
-                  
-                    <p class="section-label">07/2017 - 09/2021</p>
-                  
-                  <p>Contributed to the international project <a href="https://www.astro.rug.nl/~sundial/index.html">SUNDIAL</a> (8 universities in 7 countries),
-and developed end-to-end solutions for analyzing large astronomical datasets.</p>
-                  <ul>
-                    <li>Developed novel algorithms for the detection and characterization of astronomical structures</li>
-                    <li>Co-supervised four bachelor and master students in AI projects</li>
-                    <li>Provided training and support as Teaching Assistant for AI-related courses</li>
-                  </ul>
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    <strong>Data scientist Intern</strong> at <a href="https://www.webfleet.com/nl_nl/webfleet/">Webfleet Solutions</a>
-                  </h3>
-                  <p class="section-label">06/2019 - 07/2021</p>
-                  <p> Worked in a cross-functional team of data engineers and data scientists at Webfleet, a leading telematics provider.</p>
-                  <ul>
-                    <li>Developed a predictive model leveraging telematics data to estimate the position of the Link Box, a device utilized for tracking car conditions, within a vehicle</li>
-                    <li>Worked in an agile environment.</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h3>
-                    <strong>Data Scientist Intern</strong> at <a href="http://thunderbyte.ai/">Thunderbyte AI</a>
-                  </h3>
-                  <p class="section-label">05/2020 - 07/2020</p>
-                  <p>Contributed to an international project, called <a href="https://itea3.org/project/daytime.html">DayTime</a> project, on Digital Lifecycle Twins for predictive maintenance involving Philips and Thundebyte AI.</p>
-                  <!-- <p>Developed NLP models for automated analysis of MRI machine log files to improve data interpretation speed.</p> -->
-                  <ul>
-                    <li>Developed NLP models for automated analysis of <strong>MRI machine</strong> log files, achieved 93% accuracy.</li>
-                    <!-- <li>Implemented NLP pipelines using spaCy and scikit-learn</li> -->
-                    <li>Enabled faster MRI log data analysis and troubleshooting</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h3>
-                    <strong>AI researcher</strong> at <a href="https://www.hs-mittweida.de/en/">Mittweida University of Applied Science</a>
-                  </h3>
-                  <p class="section-label">10/2016 - 05/2017</p>
-                  <p>Contributed to the <a href="https://www.cb.hs-mittweida.de/webs/villmann/ci/"> Computational Intelligence Group CI</a>, which focuses on  the classification of high-dimensional and Big Data using machine learning methods</p>
-                  <ul>
-                    <li>Researched alignment-free sequence learning; published in <a href="https://link.springer.com/chapter/10.1007/978-3-319-59063-9_12"> ICAISC</a>. The method is particularly relevant for shift-invariant sequence comparison and applicable to biological data such as <strong>DNA sequences</strong>.</li>
-                  </ul>
-                </section>
-              
-            </section>
-          
-
-          
-            <section>
-              <h2 class="section-heading"><strong>Projects</strong></h2>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/mohammadimathstar/BrainTumorApp">Brain Tumor Classification</a>
-                    
-                  </h3>
-                  <p> A Flask-based web application designed to assist in the diagnosis of brain tumors using MRI scans. It employs a machine learning model to detect three types of brain tumors and categorized into four classes: glioma, meningioma, pituitary tumor, and no tumor. </p>
-                  <p><strong>Key Highlights:</strong></p>
-                    <ul>
-                      <li><strong>High Accuracy:</strong> It achieves 99.7% accuracy in classifying brain tumors.</li>
-                      <li><strong>Model Explainability:</strong> Incorporates explainability features to help users understand the model's predictions.</li>
-                      <li><strong>Web Interface:</strong> Built with Flask, the application provides a user-friendly interface for uploading MRI images and viewing predictions.</li>
-                    </ul>
-                  
-                  
-                    <div class="mri-figure">
-                      
-                        <figure>
-                          <img width="1800"
-                               src="img/mri.png"
-                               alt="Image Caption 1">
-                          <!-- <figcaption>An example</figcaption> -->
-                        </figure>
-                      
-                    </div>
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/mohammadimathstar/legal-case-predictor-app">Legal case classification</a>
-                    
-                  </h3>
-                  <p>A Flask-based web application designed to assist legal professionals in analyzing and classifying legal cases. By using machine learning techniques, the app predicts whether a case pertains to housing or eviction based on the textual information provided. </p>
-                  <p><strong>Key Highlights:</strong></p>
-                    <ul>
-                      <li><strong>Flask Web Application:</strong> Provides a user-friendly interface for uploading legal case documents and viewing classification results.</li>
-                      <li><strong>Explainable AI:</strong> Visualizes the most influential words from the models, enhancing transparency and interpretability of predictions.</li>
-                    </ul>
-                  
-                  
-                    <div class="mri-figure">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/case-predictor.png"
-                               alt="Image Caption 4">
-                          <!-- <figcaption>Image Caption 4</figcaption> -->
-                        </figure>
-                      
-                    </div>
-                  
-                </section>
-              
-            </section>
-          
-
-          
-            <!-- <section>
-              <h2 class="section-heading">Volunteer Experience</h2>
-              
-                <section>
-                  <h3>
-                    
-                      Position One at <a href="https://sample.com">Latest Organization</a>
-                    
-                  </h3>
-                  
-                    <p class="section-label">01/01/2020 - Present</p>
-                  
-                  <p>Short summary about present volunteer work</p>
-                  
-                    <ul>
-                      <li>First Duty of Current Organization</li><li>Second Duty of Current Organization</li><li>Third Duty of Current Organization</li>
-                    </ul>
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      Position Two at <a href="https://sample.com">Previous Organization</a>
-                    
-                  </h3>
-                  
-                    <p class="section-label">01/01/2010 - 01/01/2020</p>
-                  
-                  <p>Short summary about previous volunteer work</p>
-                  
-                    <ul>
-                      <li>First Duty of Previous Organization</li><li>Second Duty of Previous Organization</li><li>Third Duty of Previous Organization</li>
-                    </ul>
-                  
-                </section>
-              
-            </section> -->
-          
-          
-        </main>
-
-        <!-- Sidebar Section -->
-        <aside>
-
-            <section>
-              <h2 class="section-heading"><strong>Technical Skills</strong></h2>
-              <ul>
-                <li><strong>Programming:</strong> Python, Matlab</li>
-                <li><strong>Data Processing:</strong> Numpy, Pandas, Pyspark</li>
-                <li><strong>AI:</strong> Scikit-Learn, PyTorch, XGBoost</li>
-                <li><strong>NLP:</strong> spaCy, HuggingFace</li>
-                <li><strong>MLOps:</strong> 
-                  <ul>
-                    <li style="margin-left: 2rem;"><strong>Experiment Tracking:</strong> MLflow, DVC</li>
-                    <li style="margin-left: 2rem;"><strong>Orchestration:</strong> Airflow, Prefect</li>
-                    <li style="margin-left: 2rem;"><strong>Containerization:</strong> Docker</li>
-                    <li style="margin-left: 2rem;"><strong>Deployment:</strong> Flask</li>
-                    <li style="margin-left: 2rem;"><strong>Monitoring:</strong> Grafana, Evidently</li>
-                  </ul>
-                  <!-- MLflow, Git, Docker, DVC, Airflow, Prefect</li> -->
-                <li><strong>Cloud Services:</strong> Azure, AWS</li>
-                <li><strong>Database:</strong> PostgreSQL</li>
-                <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
-                <li><strong>Operating Systems:</strong> Linux, Windows</li>
-                <li><strong>Agile Tools:</strong> Jira, Confluence, Bitbucket</li>
-              </ul>
-            </section>
-
-
-            <!-- <section>
-              <h2 class="section-heading"><strong>Skills</strong></h2>
-              <ul class="unstyled-list">
-                
-                  <li>
-                    <h3>My First Skill</h3>
-                    <div class="skill-bar">
-                      <div class="skill-bar-fill w-100"
-                           role="meter"
-                           aria-valuenow="100"
-                           aria-valuemin="0"
-                           aria-valuemax="100">
-                        <span class="skill-bar-label">Proficiency Level</span>
-                      </div>
-                    </div>
-                  </li>
-                
-                  <li>
-                    <h3>My Second Skill</h3>
-                    <div class="skill-bar">
-                      <div class="skill-bar-fill w-80"
-                           role="meter"
-                           aria-valuenow="80"
-                           aria-valuemin="0"
-                           aria-valuemax="100">
-                        <span class="skill-bar-label">Proficiency Level</span>
-                      </div>
-                    </div>
-                  </li>
-                
-              </ul>
-            </section> -->
-          
-            <section class="extra-spacing">
-              <!-- Your content -->
-            </section>
-          
-            <section>
-              <h2 class="section-heading"><strong>Languages</strong></h2>
-              <ul class="unstyled-list">
-                
-                  <li>
-                    <h3><strong>English</strong></h3>
-                    <p class="section-label">C1</p>
-                  </li>
-                
-                  <li>
-                    <h3><strong>Dutch</strong></h3>
-                    <p class="section-label">B1/B2</p>
-                  </li>
-                
-              </ul>
-            </section>
-
-            <section class="extra-spacing">
-              <!-- Your content -->
-            </section>
-          
-          
-            <section>
-              <h2 class="section-heading"><strong>Education</strong></h2>
-                
-                <section>
-                  <h3>
-                    
-                      <a href="https://www.rug.nl">Univesity of Groningen</a>
-                    
-                  </h3>
-                  <p class="section-label">Groningen, The Netherlands</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>PhD in Data Science</li>
-                    </ul>
-                  
-                  
-                    <h4>Thesis</h4>
-                    <ul>
-                      <li>Novel techniques of computational intelligence for analysis of astronomical structures</li>
-                    </ul>
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://www.hs-mittweida.de/en/">Mittweida University of Applied Science</a>
-                    
-                  </h3>
-                  <p class="section-label">Mittweida, Germany</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>Master of Applied Mathematics in Digital Media</li>
-                    </ul>
-                    <p>
-                      <span class="block">GPA: 1.1</span>
-                      <span class="block">Graduation Date: 09/2016</span>
-                    </p>
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    
-                      <a href="https://en.sbu.ac.ir/">University of Shahid Beheshti</a>
-                    
-                  </h3>
-                  <p class="section-label">Tehran, Iran</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>Master of Applied Mathematics</li>
-                    </ul>
-                    <p>
-                      <span class="block">GPA: 17.20 (out of 20)</span>
-                      <span class="block">Graduation Date: 01/2010</span>
-                    </p>
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    
-                      <a href="https://kashanu.ac.ir/en">University of Kashan</a>
-                    
-                  </h3>
-                  <p class="section-label">Kashan, Iran</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>Bachelor of Applied Mathematics</li>
-                    </ul>
-                  
-                  
-                    <!-- <h4>Honors</h4>
-                    <ul>
-                      <li>Scholarship Recipient</li>
-                    </ul> -->
-                  
-                  
-                    <p>
-                      <span class="block">GPA: 14.40 (out of 20)</span>
-                      <!-- <span class="block">Cumulative GPA: 3.2</span> -->
-                      <span class="block">Graduation Date: 08/2007</span>
-                    </p>
-                  
-                </section>
-              
-            </section>
-
-            <section class="extra-spacing">
-              <!-- Your content -->
-            </section>
-
-          
-            <section>
-              <h2 class="section-heading"><strong>Journals</strong></h2>
-              
-                <section>
-                  <h3>NLP</h3>
-                  <p><a href="https://www.arxiv.org/abs/2408.13720">Arxiv</a>.</p>
-                  <p><a href="https://arxiv.org/abs/2410.02978">AI & Law</a>.</p>
-                  <p><a href="https://arxiv.org/abs/2401.16429">AI & Law</a>.</p>  
-                  <h3>Computer Vision</h3>
-                  <p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10689384">IEEE TPAMI</a>.</p>
-                  <p><a href="https://www.arxiv.org/abs/2408.13720">Arxiv</a>.</p>
-                  <h3>Table</h3>
-                  <p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231219301341">Neurocomputing</a>.</p>
-                  <p><a href="https://direct.mit.edu/neco/article-abstract/34/3/595/109086/Manifold-Alignment-Aware-Ants-A-Markovian-Process?redirectedFrom=fulltext">Neural Computation</a>.</p>
-                  <p><a href="https://academic.oup.com/mnras/article/520/3/4517/7031761">Royal Astronomical Society</a>.</p>
-                  <p><a href="https://www.sciencedirect.com/science/article/pii/S2213133722000063">Astronomy and Computing</a>.</p>
-                  <p><a href="https://www.sciencedirect.com/science/article/pii/S2213133722000725">Astronomy and Computing</a>.</p>
-                  
-                  <h3>Network Analysis</h3>
-                  <p><a href="https://arxiv.org/abs/2401.16429">AI & Law</a>.</p>  
-                  <p>ERPL.</p>
-                </section>
-              
-            </section>
-
-          <section class="extra-spacing">
-              <!-- Your content -->
-            </section>
-
-          
-            <section>
-              <h2 class="section-heading"><strong>Interests</strong></h2>
-              
-                <section>
-                  <h3>Biking in Nature</h3>
-                  <p>Enjoy exploring trails and embracing the outdoors for relaxation.</p>
-                  
-                    <div class="gallery side-gallery">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/nature.png"
-                               alt="Image Caption 7">
-                          <figcaption>Westerbroekstermadepolder</figcaption>
-                        </figure>
-                      
-                        <!-- <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=8"
-                               alt="Image Caption 8">
-                          <figcaption>Image Caption 8</figcaption>
-                        </figure> -->
-                      
-                    </div>
-                  
-                </section>
-              
-                <section>
-                  <h3>Table Tennis </h3>
-                  <p>Big fan of table tennis — it is fun, fast, and keeps me sharp.</p>
-                  
-                    <div class="gallery side-gallery">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="img/tennis.png"
-                               alt="Image Caption 9">
-                          <figcaption>Tennis</figcaption>
-                        </figure>
-                      
-                        <!-- <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=10"
-                               alt="Image Caption 10">
-                          <figcaption>Image Caption 10</figcaption>
-                        </figure> -->
-                      
-                    </div>
-                  
-                </section>
-              
-            </section>
-          
-        </aside>
+        <!-- Project 3 -->
+        <div class="project-card"
+          onclick="openModal('Astronomical Analysis', 'img/galaxy.png', 'Novel algorithms for detection and characterization of astronomical structures in large datasets.', '#', '#')">
+          <img src="img/galaxy.png" alt="Astronomical Analysis" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">Astronomical Analysis</h3>
+            <p>Novel algorithms for detection and characterization of astronomical structures in large datasets.</p>
+            <div class="project-links">
+              <span class="project-link">View Details</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <footer class="page-footer">
-      <div class="container">
-        <p>© 2025 Mohammad Mohammadi. All rights reserved.</p>
+    <!-- BLOG SECTION -->
+    <section id="blog" class="section">
+      <div id="blog-list">
+        <h2>Latest Articles</h2>
+        <div class="blog-grid">
+          <article class="blog-card" onclick="window.location.href='blog/legal-tech-nlp.html'">
+            <p class="blog-date">January 15, 2025</p>
+            <h3 class="blog-title">Legal Tech Revolution</h3>
+            <p>Combining topic modelling and citation network analysis to study case law.</p>
+            <span class="read-more">Read Article →</span>
+          </article>
+
+          <article class="blog-card" onclick="window.location.href='blog/swarm-intelligence-big-data.html'">
+            <p class="blog-date">November 10, 2023</p>
+            <h3 class="blog-title">Mining the Universe</h3>
+            <p>Swarm-intelligence-based extraction and manifold crawling along the Large-Scale Structure.</p>
+            <span class="read-more">Read Article →</span>
+          </article>
+
+          <article class="blog-card" onclick="window.location.href='blog/explainable-ai-detection.html'">
+            <p class="blog-date">June 20, 2022</p>
+            <h3 class="blog-title">Trusting the Machine</h3>
+            <p>Detection of objects using explainable AI techniques: moving beyond the black box.</p>
+            <span class="read-more">Read Article →</span>
+          </article>
+        </div>
       </div>
-    </footer>
 
-    <script src="js/app.js"></script>
-  </body>
+      <div id="blog-view" style="display: none;">
+        <button class="btn btn-secondary" onclick="showBlogList()" style="margin-bottom: 2rem;">← Back to
+          Articles</button>
+        <div id="blog-content" class="markdown-body"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <h2>Get In Touch</h2>
+      <div class="contact-container">
+        <p>I'm currently open to new opportunities in Data Science and ML Engineering. Feel free to reach out!</p>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+
+        <div class="contact-links" style="margin-top: 3rem;">
+          <a href="mailto:mohammadimathstar@gmail.com" class="contact-item">
+            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+              </path>
+            </svg>
+            <span>Email Me</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/mohammad-mohammadi-med/" target="_blank" class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/mohammadimathstar" target="_blank" class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/viz.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+
 </html>
+
+<!-- Modals -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 id="modal-title">Project Title</h2>
+    <img id="modal-img" src="" alt="Project Image" class="modal-image">
+    <p id="modal-desc">Project description goes here.</p>
+    <div class="modal-links">
+      <a href="#" id="modal-github" target="_blank" class="btn btn-secondary">View Code</a>
+      <a href="#" id="modal-demo" target="_blank" class="btn btn-primary">Live Demo</a>
+    </div>
+  </div>
+</div>
+```
