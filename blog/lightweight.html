@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Lightweight & Explainable ML - Mohammad Mohammadi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MM</div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../index.html#blog" class="nav-btn active">Back to Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section active" style="display: block; padding-top: 80px;">
+        <div class="markdown-body">
+            <h1>Building Lightweight & Explainable ML: Lessons from AChorDS‑LVQ</h1>
+            <p class="blog-date">November 2025 | Category: ML Engineering / Explainability / Case Study</p>
+
+            <img src="../img/case-predictor.png" alt="AChorDS-LVQ Architecture"
+                style="width:100%; max-height: 400px; object-fit: cover; border-radius: 16px; margin: 2rem 0;">
+
+            <p class="lead">Companies often need models that are not just accurate, but also <strong>explainable, reliable, and cheap to run</strong>. In this article I walk through a real project — <em>AChorDS‑LVQ</em> — that started as research and ended up as a small, deployable legal‑case predictor. The goal: show how research can become industrially useful, and what hiring managers really look for.</p>
+
+            <div class="links" style="margin-top:12px; margin-bottom: 2rem;">
+                <a href="https://arxiv.org/html/2410.02978v1" target="_blank" style="margin-right: 1rem;">Paper (AChorDS‑LVQ)</a>
+                <a href="https://github.com/mohammadimathstar/text-classification-AChorDS-LVQ" target="_blank" style="margin-right: 1rem;">Code (text-classification-AChorDS-LVQ)</a>
+                <a href="https://github.com/mohammadimathstar/legal-case-predictor-app" target="_blank">Deployment (legal-case-predictor-app)</a>
+            </div>
+
+            <h2>Why lightweight & explainable models matter in industry</h2>
+            <p>Many modern ML stories are about large, GPU‑heavy transformer models. In product teams, though, constraints look different: models may need to run on CPUs, comply with regulators, provide audit trails, and be understood by legal or business stakeholders. Those constraints make <strong>model size, interpretability, and reproducibility</strong> first‑class design requirements. Building solutions that respect them increases chances of adoption — which is exactly what my project targeted.</p>
+
+            <h2>The problem we solved</h2>
+            <p>We wanted to detect relevant legal cases (e.g., housing or eviction cases) from long, variable legal text without relying on large pretrained transformers. Key constraints were:</p>
+            <ul>
+                <li>Run reliably on CPU‑only machines (no GPUs).</li>
+                <li>Produce human‑interpretable explanations for decisions.</li>
+                <li>Be robust to limited labelled data and domain shifts common in legal corpora.</li>
+            </ul>
+
+            <h2>What AChorDS‑LVQ is (high level)</h2>
+            <p>AChorDS‑LVQ combines two ideas: <strong>AChorDS</strong> (a lightweight text feature/representation pipeline optimized for clarity) and <strong>LVQ</strong> (learning vector quantization — a prototype‑based, interpretable classifier). Instead of opaque embeddings and huge models, the pipeline uses engineered features + compact prototypes to make decisions that can be traced and explained.</p>
+
+            <h2>Design principles I followed</h2>
+            <ol>
+                <li><strong>Prefer simplicity:</strong> simpler models reduce surprise and debugging time.</li>
+                <li><strong>Make the model explorable:</strong> prototype‑based decisions mean you can show a user the prototype text or feature that led to a prediction.</li>
+                <li><strong>Engineer for constraints:</strong> optimize for memory/CPU, avoid huge tokenization pipelines, and provide deterministic behavior for reproducibility.</li>
+                <li><strong>Design for deployment:</strong> include a small API, dockerization, and a minimal front‑end so non‑research teams can demo the system.</li>
+            </ol>
+
+            <h2>How the system works — a developer’s walkthrough</h2>
+            <p>At a glance, the pipeline looks like this:</p>
+            <ol>
+                <li>Preprocessing & lightweight feature extraction (n-grams, TF-IDF variants, keyword features).</li>
+                <li>Optional dimensionality reduction / normalization for stability.</li>
+                <li>LVQ classifier with prototypes that live in feature space.</li>
+                <li>Prediction explanation: nearest prototypes, per‑feature contribution.</li>
+            </ol>
+
+            <div class="card" style="margin-top:12px; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                <strong>Why LVQ?</strong>
+                <p style="margin-bottom: 0;">LVQ (Learning Vector Quantization) learns representative prototype vectors for each class. A prediction is simply the class of the nearest prototype. This makes it easy to show why the model predicted what it did — you can present the nearest prototype, highlight which features mattered, and give confidence in an interpretable way.</p>
+            </div>
+
+            <h2>Snippet: How you call the model (example)</h2>
+            <div class="code-sample">
+                <pre><code># Pseudocode using the repository
+from achords_lvq import Predictor
+
+predictor = Predictor(model_path='models/achordslvq.pkl')
+text = open('sample_case.txt').read()
+result = predictor.predict(text)
+print(result.label, result.confidence)
+print('Nearest prototype:', result.nearest_prototype_text)
+print('Top contributing features:', result.top_features)
+</code></pre>
+            </div>
+
+            <h2>Deployment & engineering: from research to a small web app</h2>
+            <p>Turning research into a product‑like artifact required a few engineering steps beyond the core model:</p>
+            <ul>
+                <li>Packaging the model and feature pipeline so the app can load them deterministically.</li>
+                <li>Providing a compact REST API (Flask/FastAPI) that runs on a CPU instance.</li>
+                <li>Adding logging, a lightweight UI to paste text and see explanations, and a Dockerfile for easy deployment.</li>
+            </ul>
+            <p>You can view the exact code and app skeleton in the linked repositories above. That repository shows the project structure, training scripts, and the minimal front end used to demo the model.</p>
+
+            <h2>Why lightweight, explainable ML matters beyond research</h2>
+            <p>This kind of design is valuable across many practical ML applications:</p>
+            <ul>
+                <li><strong>Product readiness:</strong> A complete pipeline — from training to a small working app — shows how research ideas can become usable tools.</li>
+                <li><strong>Explainability for real-world decisions:</strong> Prototype-based reasoning makes results transparent for analysts, researchers, and domain experts.</li>
+                <li><strong>Efficiency:</strong> Models that run on CPUs are easier to integrate into edge systems, internal tools, or lightweight cloud services.</li>
+                <li><strong>Transferability:</strong> The same principles apply to many domains: compliance document triage, support ticket routing, small specialized classifiers, scientific text processing, and more.</li>
+            </ul>
+
+            <h2>Lessons learned & practical advice</h2>
+            <ol>
+                <li><strong>Start with the simplest baseline:</strong> strong baselines often reveal where complexity is required.</li>
+                <li><strong>Measure explainability:</strong> give users tools to interrogate the model, not just numbers.</li>
+                <li><strong>Document decisions:</strong> why certain features were chosen, why thresholds exist — this matters for handover to engineering teams.</li>
+                <li><strong>Test for robustness:</strong> legal text varies a lot; run experiments on different courts, languages, and formats.</li>
+            </ol>
+
+            <h2>Next steps & where this can go</h2>
+            <p>The approach scales in several directions: integrate compact transformer encoders for feature boosts (while keeping an interpretability layer), extend to multilingual corpora, or adapt the prototype idea for few‑shot classification in industry settings (customer support routing, compliance triage, e‑discovery).</p>
+
+            <h2>Read the code & try the demo</h2>
+            <p>All code for training and inference is available here: <a href="https://github.com/mohammadimathstar/text-classification-AChorDS-LVQ" target="_blank">text-classification-AChorDS-LVQ</a>. The small deployable demo (app) is here: <a href="https://github.com/mohammadimathstar/legal-case-predictor-app" target="_blank">legal-case-predictor-app</a>. If you want a runnable Docker image or a hosted demo link included in the blog, I can help produce that next.</p>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+            <p><em>About the author: Mohammad Imam — researcher working on interpretable and resource-efficient machine learning. Learn more on the <a href="../index.html" target="_blank">personal site</a> or on <a href="https://scholar.google.com/citations?user=Zgv1znQAAAAJ&hl=fa" target="_blank">Google Scholar</a>.</em></p>
+        </div>
+    </main>
+
+    <script>
+        // Theme handling
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+</body>
+
+</html>
