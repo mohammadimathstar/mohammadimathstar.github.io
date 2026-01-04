@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust but Verify: A Local Workbench for Auditing LLM Extractions - Mohammad Mohammadi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MM</div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../index.html#blog" class="nav-btn active">Back to Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section active" style="display: block; padding-top: 80px;">
+        <div class="markdown-body">
+            <h1>Trust but Verify: A Local Workbench for Auditing LLM Extractions</h1>
+            <p class="blog-date">January 2026 | Category: Tooling / AI / Open Source</p>
+
+            <img src="../images/blog/annotation_tool/1.png" alt="Annotation Tool Dashboard"
+                style="width:100%; max-height: 400px; object-fit: cover; border-radius: 16px; margin: 2rem 0;">
+
+            <p class="lead">Large Language Models (LLMs) like GPT-4 and Claude have revolutionised how we process
+                information. They can read through thousands of pages of documents and extract structured data—names,
+                dates, locations, and relationships—in seconds. <strong>But they are not perfect.</strong></p>
+
+            <p>For journalists, researchers, and data analysts, "mostly correct" isn't good enough. A hallucinated name
+                in an investigative report or a missed connection in a research paper can undermine the entire work.</p>
+
+            <p>That's why I built the <strong>Annotation Tool</strong>—a privacy-first, local workbench designed to help
+                you <strong>audit, correct, and verify</strong> the data extracted by LLMs.</p>
+
+            <div class="links" style="margin-top:12px; margin-bottom: 2rem;">
+                <a href="https://github.com/mohammadimathstar/annotation-app" target="_blank"
+                    style="margin-right: 1rem;">GitHub Repository</a>
+            </div>
+
+            <h2>Why You Need This Tool</h2>
+
+            <h3>1. The "Human-in-the-Loop" Necessity</h3>
+            <p>You can't blindly trust an LLM's output. You need a way to see the original text side-by-side with the
+                extracted data. This tool provides a clean interface to review every entity and relation, ensuring your
+                dataset is accurate.</p>
+
+            <h3>2. Compare Multiple Models</h3>
+            <p>Is GPT-4 better than Mistral for your specific documents? This tool allows you to load outputs from
+                different models and compare them directly. You can see where they agree and where they diverge, helping
+                you pick the best results or combine them for higher accuracy.</p>
+
+            <h3>3. Privacy First</h3>
+            <p>Investigative journalism and sensitive research often involve confidential documents. Cloud-based tools
+                are a risk. This tool runs <strong>entirely on your laptop</strong>. Your documents and data never leave
+                your machine.</p>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+
+            <h2>A Tour of the Workbench</h2>
+
+            <h3>The Dashboard</h3>
+            <p>When you open the tool, you get an overview of your document collection (bulletins). You can quickly
+                navigate through them and see the status of your extraction tasks.</p>
+
+            <!-- Already shown as header image, but can be repeated or omitted. Let's omit since it's at the top. -->
+
+            <h3>Verifying Extractions</h3>
+            <p>The core of the tool is the <strong>Bulletin View</strong>. On the left, you have the original text (or
+                OCR output). On the right, you have the structured entities and relations extracted by the LLM.</p>
+
+            <p>You can:</p>
+            <ul>
+                <li><strong>Click</strong> on an entity to highlight it in the text.</li>
+                <li><strong>Edit</strong> typos or incorrect categorisations.</li>
+                <li><strong>Add</strong> missing entities that the LLM missed.</li>
+            </ul>
+
+            <img src="../images/blog/annotation_tool/2.png" alt="Bulletin View"
+                style="width:100%; border-radius: 8px; margin: 1rem 0;">
+
+            <h3>Comparing Transcripts & Models</h3>
+            <p>Sometimes the OCR itself is the problem, or different models generate different transcripts. The
+                <strong>Diff View</strong> allows you to compare two versions of text side-by-side. This is perfect for:
+            </p>
+            <ul>
+                <li>Comparing the raw OCR against a "cleaned" version generated by an LLM.</li>
+                <li>Comparing the outputs of two different LLMs to see how they interpreted the document.</li>
+            </ul>
+
+            <img src="../images/blog/annotation_tool/3.png" alt="Diff View"
+                style="width:100%; border-radius: 8px; margin: 1rem 0;">
+
+            <h3>Creating Ground Truth</h3>
+            <p>By correcting the LLM's mistakes, you are effectively creating a <strong>Ground Truth</strong> dataset.
+                This "gold standard" data is invaluable. You can use it to:</p>
+            <ul>
+                <li>Fine-tune smaller, cheaper models to perform as well as the giants.</li>
+                <li>Benchmark new models as they are released.</li>
+                <li>Publish verified datasets with confidence.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+
+            <h2>Getting Started</h2>
+            <p>This tool is open-source and free to use. It requires a simple setup with Python and Node.js.</p>
+            <ol>
+                <li><strong>Clone the repository.</strong></li>
+                <li><strong>Start the backend</strong> (FastAPI) to handle your data.</li>
+                <li><strong>Start the frontend</strong> (React) to launch the interface.</li>
+            </ol>
+            <p>Detailed instructions are available in the <a href="https://github.com/mohammadimathstar/annotation-app"
+                    target="_blank">README</a>.</p>
+
+            <h2>Conclusion</h2>
+            <p>AI is a powerful assistant, but it's not a replacement for human judgment. This Annotation Tool gives you
+                the best of both worlds: the speed of AI extraction with the precision of human verification.</p>
+            <p><em>Ready to take control of your data? Download the tool today.</em></p>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+            <p><em>About the author: Mohammad Imam — researcher working on interpretable and resource-efficient machine
+                    learning. Learn more on the <a href="../index.html" target="_blank">personal site</a>.</em></p>
+        </div>
+    </main>
+
+    <script>
+        // Theme handling
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+</body>
+
+</html>
