@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" role="img" aria-label="Stage 0b cleaning">
+<title>Stage 0b cleaning</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker><marker id="arrSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<rect x="1" y="1" width="1198" height="678" rx="16" fill="#0f172a" stroke="rgba(56,189,248,0.35)" stroke-width="1.5"/>
+<text x="600.0" y="42" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="21" fill="#38bdf8" text-anchor="middle" font-weight="700">Stage 0b — cleaning: strip noise, keep the evidence</text>
+<text x="600.0" y="68" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="middle">a corpus frequency lexicon separates rare-but-real 1939 Dutch words from OCR garbage (illustrative fragment)</text>
+<rect x="40" y="96" width="540" height="400" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#818cf8" text-anchor="start" font-weight="700">RAW — kept as text_org</text>
+<rect x="338.8" y="106.0" width="182.4" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="430" y="121.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">bulletins_text_raw.jsonl</text>
+<rect x="56" y="140" width="508" height="336" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="76" y="176" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start">— 2 —</text>
+<rect x="400" y="162" width="79.34" height="20" rx="10" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.45)" stroke-width="1"/>
+<text x="407" y="176" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#f87171" text-anchor="start">page number</text>
+<line x1="380" y1="172" x2="400" y2="172" stroke="#f87171" stroke-width="1"/>
+<text x="76" y="226" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="start">Londen, 3 September. De minister president</text>
+<text x="76" y="276" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start">Chamber-  lain heeft gesproken.</text>
+<rect x="400" y="262" width="120.92" height="20" rx="10" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.45)" stroke-width="1"/>
+<text x="407" y="276" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#f87171" text-anchor="start">broken hyphenation</text>
+<line x1="380" y1="272" x2="400" y2="272" stroke="#f87171" stroke-width="1"/>
+<text x="76" y="326" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start">Het  land  blijft  rustig.   xyzqwb</text>
+<rect x="400" y="312" width="150.62" height="20" rx="10" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.45)" stroke-width="1"/>
+<text x="407" y="326" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#f87171" text-anchor="start">OCR junk (lexicon miss)</text>
+<line x1="380" y1="322" x2="400" y2="322" stroke="#f87171" stroke-width="1"/>
+<text x="76" y="376" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start">Politiek Overzicht</text>
+<rect x="400" y="362" width="150.62" height="20" rx="10" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.45)" stroke-width="1"/>
+<text x="407" y="376" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#f87171" text-anchor="start">section header → tagged</text>
+<line x1="380" y1="372" x2="400" y2="372" stroke="#f87171" stroke-width="1"/>
+<text x="76" y="426" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="start">De grens bij Posen is gesloten.</text>
+<line x1="76" y1="171" x2="112.45" y2="171" stroke="#f87171" stroke-width="1.4"/>
+<line x1="287.41" y1="321" x2="331.15" y2="321" stroke="#f87171" stroke-width="1.4"/>
+<line x1="580" y1="300" x2="620" y2="300" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<text x="600.0" y="290.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">clean()</text>
+<rect x="622" y="96" width="538" height="400" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="638" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#38bdf8" text-anchor="start" font-weight="700">CLEANED — NER input</text>
+<rect x="905.6" y="106.0" width="208.79999999999998" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="1010" y="121.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">bulletins_text_cleaned.jsonl</text>
+<rect x="638" y="140" width="506" height="336" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="658" y="176" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="13.5" fill="#4ade80" text-anchor="start">[SECTION] Politiek Overzicht</text>
+<text x="1160" y="176" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#4ade80" text-anchor="end">✓ kept as sentence-boundary marker</text>
+<text x="658" y="226" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="start">Londen, 3 September. De minister president</text>
+<text x="658" y="276" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#4ade80" text-anchor="start">Chamberlain heeft gesproken.</text>
+<text x="1160" y="276" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#4ade80" text-anchor="end">✓ hyphen repaired</text>
+<text x="658" y="326" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#4ade80" text-anchor="start">Het land blijft rustig.</text>
+<text x="1160" y="326" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#4ade80" text-anchor="end">✓ whitespace normalised</text>
+<text x="658" y="376" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="start">De grens bij Posen is gesloten.</text>
+<text x="638" y="496" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#64748b" text-anchor="start">metadata mode: “tag” keeps headers as boundary markers (use “remove” to strip)</text>
+<text x="638" y="514" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#64748b" text-anchor="start">original text preserved under text_org — every offset can be audited</text>
+<rect x="40" y="520" width="1120" height="110" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="548" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">THE LEXICON</text>
+<rect x="176.1" y="532.0" width="307.8" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="330" y="547.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">anp_lexicon.txt · built once · min_freq = 3</text>
+<circle cx="294" cy="575.75" r="2.6" fill="#38bdf8"/>
+<text x="304" y="580" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">frequency lexicon built from the whole corpus on first run, then reused — real low-frequency words survive, OCR garbage is dropped</text>
+<circle cx="294" cy="596.75" r="2.6" fill="#38bdf8"/>
+<text x="304" y="601" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">a per-rule firing report is printed after every run: how often each cleaning rule triggered across the corpus</text>
+</svg>

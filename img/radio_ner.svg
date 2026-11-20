@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" role="img" aria-label="Stage 1 NER with structured outputs">
+<title>Stage 1 NER with structured outputs</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker><marker id="arrSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<rect x="1" y="1" width="1198" height="688" rx="16" fill="#0f172a" stroke="rgba(56,189,248,0.35)" stroke-width="1.5"/>
+<text x="600.0" y="42" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="21" fill="#38bdf8" text-anchor="middle" font-weight="700">Stage 1 — NER: an LLM that must answer in a schema</text>
+<text x="600.0" y="68" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="middle">OpenAI Responses API + Structured Outputs · Pydantic validation · offsets repaired and re-checked</text>
+<rect x="40" y="96" width="1120" height="116" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="64" y="148" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="17" fill="#e2e8f0" text-anchor="start">Londen, 3 September. De minister </text>
+<rect x="362.94" y="129" width="108.98" height="27" rx="6" fill="rgba(56,189,248,0.16)" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="366.94" y="148" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="17" fill="#38bdf8" text-anchor="start" font-weight="600">Chamberlain</text>
+<rect x="340.15" y="111" width="154.56" height="17" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+<text x="417.43" y="123" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#38bdf8" text-anchor="middle">Person · Politician · e1</text>
+<text x="475.92" y="148" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="17" fill="#e2e8f0" text-anchor="start"> sprak vanmorgen over </text>
+<rect x="673.88" y="129" width="99.80000000000001" height="27" rx="6" fill="rgba(244,114,182,0.16)" stroke="#f472b6" stroke-width="1.2"/>
+<text x="677.88" y="148" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="17" fill="#f472b6" text-anchor="start" font-weight="600">den oorlog</text>
+<rect x="625.71" y="111" width="196.14000000000001" height="17" rx="8" fill="#0f172a" stroke="#f472b6" stroke-width="0.8"/>
+<text x="723.78" y="123" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#f472b6" text-anchor="middle">Event · ArmedConflict · event_1</text>
+<text x="777.6800000000001" y="148" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="17" fill="#e2e8f0" text-anchor="start">.</text>
+<text x="64" y="196" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">spans hold the name only (“minister” excluded) · 1939 spelling kept verbatim · normalized_name only when reasonably certain</text>
+<text x="40" y="246" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">6 entity types (each with subtypes) + bulletin topics: politics · military · economy · sports · weather · other</text>
+<rect x="40" y="260" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="40" y="260" width="4" height="44" rx="2" fill="#38bdf8" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="54" y="279" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#38bdf8" text-anchor="start" font-weight="600">Person</text>
+<text x="54" y="296" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">Politician · Military · Diplomat · Athlete · …</text>
+<rect x="420" y="260" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="420" y="260" width="4" height="44" rx="2" fill="#818cf8" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="434" y="279" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#818cf8" text-anchor="start" font-weight="600">Organization</text>
+<text x="434" y="296" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">Government · MediaOrganization · SportsClub · …</text>
+<rect x="800" y="260" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="800" y="260" width="4" height="44" rx="2" fill="#34d399" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="814" y="279" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#34d399" text-anchor="start" font-weight="600">Place</text>
+<text x="814" y="296" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">Country · Settlement · Infrastructure · …</text>
+<rect x="40" y="316" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="40" y="316" width="4" height="44" rx="2" fill="#f472b6" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="54" y="335" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#f472b6" text-anchor="start" font-weight="600">Event</text>
+<text x="54" y="352" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">ArmedConflict · DiplomaticMeeting · SportsEvent · …</text>
+<rect x="420" y="316" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="420" y="316" width="4" height="44" rx="2" fill="#fbbf24" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="434" y="335" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#fbbf24" text-anchor="start" font-weight="600">Vehicle</text>
+<text x="434" y="352" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">Ship · Aircraft · Submarine · Train</text>
+<rect x="800" y="316" width="360" height="44" rx="9" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="800" y="316" width="4" height="44" rx="2" fill="#f87171" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="814" y="335" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#f87171" text-anchor="start" font-weight="600">LegalDocument</text>
+<text x="814" y="352" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#94a3b8" text-anchor="start">Treaty · Law · Decree · Communique</text>
+<rect x="40" y="380" width="560" height="250" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="406" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.2">WHAT RUNS PER BULLETIN (resumable, fail-soft)</text>
+<rect x="56" y="419" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="435" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">1</text>
+<text x="88" y="434" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">chunk_text — long bulletins split at 1000 characters</text>
+<rect x="56" y="449" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="465" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">2</text>
+<text x="88" y="464" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">Responses API call: ENTITY_SYSTEM_PROMPT + NERExtraction schema</text>
+<rect x="56" y="479" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="495" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">3</text>
+<text x="88" y="494" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">correct_llm_offsets — repair, shift chunk-local → bulletin-global</text>
+<rect x="56" y="509" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="525" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">4</text>
+<text x="88" y="524" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">per-type re-validation (Event-only fields stripped from non-Events)</text>
+<rect x="56" y="539" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="555" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">5</text>
+<text x="88" y="554" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">validate_entity_mentions — text[start:end] == text, no duplicate ids</text>
+<rect x="56" y="569" width="22" height="22" rx="6" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="67" y="585" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle" font-weight="700">6</text>
+<text x="88" y="584" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">failure → annotation_issues.jsonl · bulletin skipped, run continues</text>
+<rect x="620" y="380" width="540" height="250" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="636" y="406" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.2">NEROutput RECORD (from the schema)</text>
+<text x="656" y="436" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#e2e8f0" text-anchor="start">{ "bulletin_id": "anp:radio:1939:09:03:001",</text>
+<text x="656" y="456" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#e2e8f0" text-anchor="start">  "topics": ["military", "politics"],  "model": "gpt-6-luna",</text>
+<text x="656" y="476" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#e2e8f0" text-anchor="start">  "entities": [</text>
+<text x="656" y="496" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#38bdf8" text-anchor="start">    { "id": "e1", "type": "Person", "subtype": "Politician",</text>
+<text x="656" y="516" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#38bdf8" text-anchor="start">      "text": "Chamberlain", "start": 23, "end": 33,</text>
+<text x="656" y="536" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#38bdf8" text-anchor="start">      "annotation_confidence": 0.9 },</text>
+<text x="656" y="556" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#f472b6" text-anchor="start">    { "id": "e2", "type": "Event", "subtype": "ArmedConflict",</text>
+<text x="656" y="576" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#f472b6" text-anchor="start">      "text": "den oorlog", "event_id": "event_1",</text>
+<text x="656" y="596" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#f472b6" text-anchor="start">      "annotation_confidence": 0.7 } ] }</text>
+<text x="636" y="616" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#64748b" text-anchor="start">the model field records which LLM produced the annotation — full traceability</text>
+</svg>

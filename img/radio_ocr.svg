@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" role="img" aria-label="Stage 0a OCR text reconstruction">
+<title>Stage 0a OCR text reconstruction</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker><marker id="arrSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<rect x="1" y="1" width="1198" height="698" rx="16" fill="#0f172a" stroke="rgba(56,189,248,0.35)" stroke-width="1.5"/>
+<text x="600.0" y="42" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="21" fill="#38bdf8" text-anchor="middle" font-weight="700">Stage 0a — OCR text reconstruction: word boxes → running text</text>
+<text x="600.0" y="68" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="middle">Textract returns word-level bounding boxes, not text — lines and paragraphs must be rebuilt from geometry (illustrative fragment)</text>
+<rect x="40" y="96" width="520" height="470" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">INPUT</text>
+<rect x="173.7" y="106.0" width="228.6" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="288" y="121.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">words: [{text, bbox:[l,t,w,h]}]</text>
+<rect x="56" y="138" width="488" height="300" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="66" y="154" width="60.92" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="70" y="168" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#e2e8f0" text-anchor="start" font-weight="600">Londen,</text>
+<rect x="148" y="154" width="15.56" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="152" y="168" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#e2e8f0" text-anchor="start" font-weight="600">3</text>
+<rect x="172" y="154" width="83.60000000000001" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="176" y="168" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#e2e8f0" text-anchor="start" font-weight="600">September.</text>
+<rect x="66" y="198" width="23.12" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="70" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">De</text>
+<rect x="102" y="198" width="68.48" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="106" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">minister</text>
+<rect x="182" y="198" width="91.16000000000001" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="186" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">Chamberlain</text>
+<rect x="314" y="198" width="45.800000000000004" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="318" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">heeft</text>
+<rect x="378" y="198" width="76.04" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="382" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">vanmorgen</text>
+<rect x="66" y="228" width="76.04" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="70" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">gesproken</text>
+<rect x="172" y="228" width="38.24" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="176" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">over</text>
+<rect x="228" y="228" width="30.68" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="232" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">den</text>
+<rect x="278" y="228" width="60.92" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="282" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">oorlog.</text>
+<rect x="356" y="228" width="23.12" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="360" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">De</text>
+<rect x="398" y="228" width="68.48" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="402" y="242" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">situatie</text>
+<rect x="66" y="258" width="53.36" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="70" y="272" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">blijft</text>
+<rect x="120" y="258" width="83.60000000000001" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="124" y="272" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">gespannen.</text>
+<rect x="126" y="288" width="68.48" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="130" y="302" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">Berlijn,</text>
+<rect x="202" y="288" width="15.56" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="206" y="302" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">4</text>
+<rect x="226" y="288" width="83.60000000000001" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="230" y="302" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">September.</text>
+<rect x="332" y="288" width="23.12" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="336" y="302" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">De</text>
+<rect x="376" y="288" width="45.800000000000004" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="380" y="302" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">grens</text>
+<rect x="126" y="318" width="30.68" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="130" y="332" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">bij</text>
+<rect x="168" y="318" width="45.800000000000004" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="172" y="332" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">Posen</text>
+<rect x="240" y="318" width="23.12" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="244" y="332" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">is</text>
+<rect x="272" y="318" width="76.04" height="20" rx="3" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.55)" stroke-width="0.8"/>
+<text x="276" y="332" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#94a3b8" text-anchor="start">gesloten.</text>
+<line x1="112" y1="234" x2="112" y2="328" stroke="#34d399" stroke-width="1.2"/>
+<text x="58" y="356" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#34d399" text-anchor="start">indented new paragraph</text>
+<rect x="56" y="456" width="488" height="92" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="72" y="482" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#94a3b8" text-anchor="start">{"file_name": "anp_1939_09_03_001.tif",</text>
+<text x="72" y="504" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#94a3b8" text-anchor="start"> "words": [{"text": "Chamberlain",</text>
+<text x="72" y="526" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#94a3b8" text-anchor="start">            "bbox": [0.42, 0.31, 0.11, 0.02]}]</text>
+<text x="72" y="544" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#94a3b8" text-anchor="start">...}</text>
+<line x1="560" y1="300" x2="604" y2="300" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="606" y="130" width="190" height="150" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="622" y="156" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#38bdf8" text-anchor="start" font-weight="600">1 · reconstruct_lines</text>
+<circle cx="626" cy="178.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="182" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">sort words by</text>
+<circle cx="626" cy="195.59" r="2.6" fill="#38bdf8"/>
+<text x="636" y="199.5" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">vertical position</text>
+<circle cx="626" cy="213.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="217.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">group by centre-y</text>
+<circle cx="626" cy="230.59" r="2.6" fill="#38bdf8"/>
+<text x="636" y="234.5" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">proximity (tol 0.008)</text>
+<circle cx="626" cy="248.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="252.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">sort left → right</text>
+<rect x="606" y="300" width="190" height="210" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="622" y="326" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#38bdf8" text-anchor="start" font-weight="600">2 · join_paragraphs</text>
+<text x="622" y="350" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">new ¶ if line starts</text>
+<text x="622" y="366" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">with a capital AND:</text>
+<circle cx="626" cy="386.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="390" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">(a) indented margin</text>
+<circle cx="626" cy="403.59" r="2.6" fill="#38bdf8"/>
+<text x="636" y="407.5" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">    (&gt; 0.025)</text>
+<circle cx="626" cy="421.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="425.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">(b) line gap &gt; 1.5×</text>
+<circle cx="626" cy="438.59" r="2.6" fill="#38bdf8"/>
+<text x="636" y="442.5" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">    median</text>
+<circle cx="626" cy="456.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="460.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">(c) prev. line ends</text>
+<circle cx="626" cy="473.59" r="2.6" fill="#38bdf8"/>
+<text x="636" y="477.5" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">    short of margin</text>
+<circle cx="626" cy="491.09" r="2.6" fill="#38bdf8"/>
+<text x="636" y="495.0" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#e2e8f0" text-anchor="start">else: continuation line</text>
+<line x1="796" y1="300" x2="840" y2="300" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="842" y="96" width="318" height="470" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="858" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">OUTPUT</text>
+<rect x="910.8" y="106.0" width="182.4" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="1002" y="121.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">bulletins_text_raw.jsonl</text>
+<rect x="858" y="138" width="286" height="300" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="874" y="170" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="14" fill="#e2e8f0" text-anchor="start" font-weight="600">Londen, 3 September.</text>
+<text x="874" y="202" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">De minister Chamberlain heeft</text>
+<text x="874" y="224" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">vanmorgen gesproken over den</text>
+<text x="874" y="246" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">oorlog. De situatie blijft gespannen.</text>
+<text x="874" y="286" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">Berlijn, 4 September. De grens</text>
+<text x="874" y="308" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="start">bij Posen is gesloten.</text>
+<text x="874" y="334" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#34d399" text-anchor="start">¶ break: capital + (a) indent + (b) gap</text>
+<text x="874" y="352" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#34d399" text-anchor="start">+ (c) preceding line ends short</text>
+<rect x="858" y="456" width="286" height="92" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="874" y="482" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11.5" fill="#94a3b8" text-anchor="start">{"bulletin_id": "anp:radio:1939:09:03:001",</text>
+<text x="874" y="504" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11.5" fill="#94a3b8" text-anchor="start"> "text": "Londen, 3 September. …"</text>
+<text x="874" y="526" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11.5" fill="#94a3b8" text-anchor="start">}</text>
+<text x="858" y="566" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#64748b" text-anchor="start">one record per bulletin · pure standard library</text>
+<text x="600" y="660" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">why it matters: NER offsets must be anchored to readable text, not raw OCR geometry</text>
+</svg>

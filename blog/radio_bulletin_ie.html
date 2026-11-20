@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How radio-bulletin-ie turns scanned 1939 Dutch ANP radio bulletins into structured entities and relations: OCR reconstruction, LLM-based NER, and multiple-choice relation extraction.">
+    <title>From 1939 Radio Bulletins to a Knowledge Graph - Mohammad Mohammadi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MM</div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../index.html#blog" class="nav-btn active">Back to Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section active" style="display: block; padding-top: 80px;">
+        <div class="markdown-body">
+            <h1>From Scanned 1939 Radio Bulletins to a Knowledge Graph: An LLM Information-Extraction Pipeline</h1>
+            <p class="blog-date">November 2026 | Category: NLP / Historical Data / Knowledge Graphs</p>
+
+            <img src="../img/radio_pipeline.svg" alt="radio-bulletin-ie pipeline at a glance"
+                style="width:100%; border-radius: 16px; margin: 2rem 0;">
+
+            <p class="lead">What can the news of 1939 teach us if we can finally <em>query</em> it? The Dutch national
+                library has digitised almost 1.5 million ANP radio bulletins — typewritten pages full of names,
+                places, treaties and battles. In this post I walk through <strong>radio-bulletin-ie</strong>, the
+                pipeline I built to turn that scanned history into structured data: reconstructing text from OCR word
+                boxes, extracting entities with an LLM under a strict schema, and classifying relations between them
+                — output that feeds a separate knowledge-graph repository.</p>
+
+            <div class="links" style="margin-top:12px; margin-bottom: 2rem;">
+                <a href="https://github.com/mohammadimathstar/radio-bulletin-ie" target="_blank"
+                    style="margin-right: 1rem;">GitHub Repository</a>
+                <a href="https://github.com/mohammadimathstar/radio-bulletin-kg" target="_blank"
+                    style="margin-right: 1rem;">Companion KG Repo</a>
+                <a href="https://www.kb.nl/en/research-find/datasets/delpher-anp-radiobulletins-digital"
+                    target="_blank">Dataset (KB / Delpher)</a>
+            </div>
+
+            <h2>The data: 1.5 million wartime radio bulletins</h2>
+            <p>The source material is the <strong>Delpher ANP radio bulletins digital</strong> dataset, published by
+                the KB (Koninklijke Bibliotheek, the National Library of the Netherlands). It contains roughly
+                <strong>1,474,000 digitised typescripts</strong> of ANP radio news broadcasts spanning 1937–1984, and
+                it is freely accessible via Delpher. This project works on the <strong>1939 subset</strong> — the year
+                the Second World War reached the Netherlands — which means Dutch orthography of 1939 (<em>den
+                    oorlog</em>, <em>teekende</em>) and every kind of OCR noise you can expect from eighty-year-old
+                typewritten pages.</p>
+
+            <p>There is a catch that shapes the entire pipeline. The digitised typescripts were processed with
+                <strong>AWS Textract</strong>, which does not return text — it returns <strong>word-level bounding
+                    boxes</strong> in normalised coordinates. The raw dataset is a JSONL of records like this:</p>
+
+            <div class="code-sample">
+                <pre><code>{"file_name": "anp_1939_09_03_001.tif",
+ "words": [{"text": "Londen,",  "bbox": [0.04, 0.11, 0.06, 0.02]},
+           {"text": "3",       "bbox": [0.11, 0.11, 0.01, 0.02]},
+           {"text": "September.", "bbox": [0.13, 0.11, 0.08, 0.02]},
+           ...]}</code></pre>
+            </div>
+
+            <p>Before any NLP can happen, someone has to turn geometry back into language. That is stage 0 of the
+                pipeline, and it is the least glamorous and most consequential part of the whole project: every
+                downstream character offset is anchored to the text this stage produces.</p>
+
+            <div class="card" style="margin-top:12px;">
+                <strong>A note on licensing.</strong>
+                <p style="margin-bottom: 0;">The KB dataset has its own terms. This repository deliberately does
+                    <strong>not</strong> redistribute source data — users are expected to obtain bulletins from
+                    Delpher themselves and check the KB dataset page before redistributing any source text or derived
+                    data.</p>
+            </div>
+
+            <h2>The pipeline at a glance</h2>
+            <p>radio-bulletin-ie covers the <strong>three upstream stages</strong> of a larger historical
+                knowledge-graph effort: preprocessing, named entity recognition (NER), and relation extraction (RE).
+                The downstream graph construction (NetworkX + RDF/SPARQL) lives in a separate companion repository,
+                <strong>radio-bulletin-kg</strong>, and the contract between the two is deliberately boring:
+                <strong>JSONL files, one record per bulletin</strong>, carrying entities and relations. Boring
+                contracts are good contracts — they make every stage independently re-runnable.</p>
+
+            <p>Each stage is <strong>resumable</strong>: outputs are append-only JSONL with per-bulletin caching, so
+                an interrupted run continues where it stopped instead of paying for API calls twice. That single
+                design choice matters more than it sounds when your NER stage calls a paid LLM for every bulletin in
+                a corpus of this size.</p>
+
+            <h2>Stage 0a — rebuilding text from word boxes</h2>
+            <p>The reconstruction (<code>ocr2text.py</code>) works in two steps, using nothing but the Python
+                standard library. First, <code>reconstruct_lines</code> sorts all words by vertical position and
+                groups them into lines by <strong>centre-y proximity</strong> (a tolerance of 0.008 in normalised
+                coordinates); within each line, words are sorted left-to-right. Second, <code>join_paragraphs</code>
+                rebuilds paragraph structure from typography: a new paragraph starts when the current line begins
+                with a capital letter <em>and</em> satisfies at least one of three cues — (a) the line is indented
+                more than 0.025 beyond the median left margin, (b) there is extra vertical spacing above it (more
+                than 1.5× the median line gap), or (c) the preceding line ends substantially short of the right
+                margin. Lines that do not start with a capital are appended to the current paragraph — they are the
+                continuation lines that OCR line-wrapping produces.</p>
+
+            <img src="../img/radio_ocr.svg" alt="OCR reconstruction: word boxes to lines and paragraphs"
+                style="width:100%; border-radius: 12px; margin: 1.5rem 0;">
+
+            <p>The result is one record per bulletin in <code>bulletins_text_raw.jsonl</code> — for example
+                <code>{"bulletin_id": "anp:radio:1939:09:03:001", "text": "Londen, 3 September. …"}</code>. Why go to
+                this trouble at all? Because NER offsets must be anchored to <strong>readable text, not raw OCR
+                    geometry</strong>. If you annotate boxes instead of text, every downstream consumer inherits your
+                coordinate system.</p>
+
+            <h2>Stage 0b — cleaning without destroying the evidence</h2>
+            <p>The second preprocessing step (<code>preprocess_bulletins.py</code>) cleans the reconstructed text,
+                and the interesting problem here is subtler than "remove noise": <strong>how do you tell OCR garbage
+                    apart from a real but rare Dutch word?</strong> A frequency filter alone would delete perfectly
+                valid low-frequency names and old spellings. The solution is a corpus lexicon:
+                <code>build_lexicon</code> scans the entire corpus once, keeps words with frequency ≥ 3, and saves
+                them to <code>data/anp_lexicon.txt</code>. Subsequent runs load it directly. Now the cleaner can
+                distinguish "rare but real" (in the lexicon → keep) from "noise" (not in the lexicon, malformed →
+                strip).</p>
+
+            <img src="../img/radio_cleaning.svg" alt="Cleaning raw reconstructed text with a corpus lexicon"
+                style="width:100%; border-radius: 12px; margin: 1.5rem 0;">
+
+            <p>The cleaner strips page numbers, filler lines and OCR artefacts, normalises whitespace, and tags
+                section/bulletin headers in place. In <code>CleanConfig(metadata="tag")</code> mode those headers
+                survive as sentence-boundary markers (there is a <code>"remove"</code> mode that strips them
+                entirely). Crucially, the original text is preserved under <code>text_org</code> while the cleaned
+                version replaces <code>text</code> — <strong>cleaning preserves provenance</strong>, so any offset
+                audit can trace a span back to the pre-cleaning text. A per-rule firing report is printed after each
+                run, showing how often every cleaning rule triggered across the corpus, which is how you catch a
+                rule that is eating real content.</p>
+
+            <h2>Stage 1 — NER: an LLM that must answer in a schema</h2>
+            <p>Stage 1 (<code>src/NER/</code>) annotates entities and topics with an LLM, but "ask GPT and parse what
+                it says" is not how this works. The bulletin is sent to the OpenAI Responses API with
+                <code>ENTITY_SYSTEM_PROMPT</code> and the <code>NERExtraction</code> Pydantic schema as a
+                <strong>Structured Outputs</strong> constraint — the model literally cannot return anything that does
+                not validate. The schema defines <strong>six entity types, each with subtypes</strong>:</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="border-collapse: collapse; width: 100%; margin: 0; font-size: 0.95em;">
+                <thead>
+                    <tr>
+                        <th style="text-align:left; padding:0.6rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.35); color:#38bdf8;">Type</th>
+                        <th style="text-align:left; padding:0.6rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.35); color:#38bdf8;">Subtypes</th>
+                        <th style="text-align:left; padding:0.6rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.35); color:#38bdf8;">Extra fields</th>
+                    </tr>
+                </thead>
+                <tbody style="color:inherit;">
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><strong>Person</strong></td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">Politician, Military, Diplomat, Athlete, Professional, Other</td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><strong>Organization</strong></td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">Government, MilitaryOrganization, MediaOrganization, CommercialCompany, SportsClub, PoliticalParty, Association</td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><strong>Place</strong></td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">Country, AdministrativeDivision, Settlement, NaturalFeature, Infrastructure</td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><strong>Event</strong></td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">ArmedConflict, DiplomaticMeeting, SportsEvent, FinancialEvent, Political, Other</td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><code>event_id</code> (bulletin-local coref), <code>event_date</code> (ISO), <code>date_resolution</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);"><strong>Vehicle</strong></td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">Ship, Aircraft, Submarine, Train</td>
+                        <td style="padding:0.55rem 0.75rem; border-bottom:1px solid rgba(148,163,184,0.2);">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.55rem 0.75rem;"><strong>LegalDocument</strong></td>
+                        <td style="padding:0.55rem 0.75rem;">Treaty, Law, Decree, Agreement, Communique</td>
+                        <td style="padding:0.55rem 0.75rem;">—</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p>Bulletin-level <strong>topics</strong> are multi-label: <code>politics, military, economy, sports,
+                weather, other</code>. The annotation policy is deliberately conservative: spans contain the
+                <strong>name only</strong> (<code>minister Chamberlain</code> → mention <code>Chamberlain</code>);
+                the original 1939 spelling, capitalisation and diacritics are preserved verbatim because character
+                offsets must match the source text; every occurrence gets its own mention id and identities are
+                <em>not</em> linked across bulletins; <code>normalized_name</code> carries a modern spelling only
+                when it is reasonably certain, otherwise <code>null</code>; and event coreference works within a
+                single bulletin only (<code>event_1</code>, <code>event_2</code>, … in order of first occurrence).</p>
+
+            <img src="../img/radio_ner.svg" alt="NER with structured outputs: schema, validation and output record"
+                style="width:100%; border-radius: 12px; margin: 1.5rem 0;">
+
+            <p>Long bulletins are chunked at 1000 characters (<code>chunk_text</code>), and each chunk goes through
+                the same call. After the response comes back, the real work starts: chunk-local offsets are repaired
+                by <code>correct_llm_offsets</code> (which finds the surface string nearby when the LLM miscounted)
+                and shifted to bulletin-global coordinates; topics are merged across chunks; entities are
+                re-validated per concrete type (Event-only fields are stripped from non-Events); and a final
+                <code>validate_entity_mentions</code> check asserts that <code>text[start:end]</code> really equals
+                the mention text, with no duplicate ids. A bulletin that fails is logged to
+                <code>data/annotation_issues.jsonl</code> and <strong>skipped, not crashed</strong> — one bad
+                bulletin never takes down an overnight run over thousands of records. Already-processed bulletins
+                are cached by id.</p>
+
+            <p>One output record looks like this (straight from the schema — note the <code>model</code> field, which
+                records which LLM produced the annotation for traceability):</p>
+
+            <div class="code-sample">
+                <pre><code>{
+  "bulletin_id": "anp:radio:1939:09:03:001",
+  "bulletin_date": "1939-09-03",
+  "language": "nl",
+  "topics": ["military", "politics"],
+  "model": "gpt-6-luna",
+  "text": "Londen, 3 September. ...",
+  "entities": [
+    {
+      "id": "e1", "type": "Person", "subtype": "Politician",
+      "text": "Chamberlain", "normalized_name": null,
+      "start": 23, "end": 33, "annotation_confidence": 0.9
+    },
+    {
+      "id": "e2", "type": "Event", "subtype": "ArmedConflict",
+      "text": "den oorlog", "normalized_name": null,
+      "start": 41, "end": 50, "annotation_confidence": 0.7,
+      "event_id": "event_1", "event_date": null, "date_resolution": "unresolved"
+    }
+  ]
+}</code></pre>
+            </div>
+
+            <p>A nice touch for prompt engineering: there is a drop-in alternative schema,
+                <code>entities_long_desc.py</code>, whose field descriptions carry concrete Dutch examples
+                (<em>Vereenigde Staten</em>, <em>Slag bij Tannenberg</em>, <em>Holland-Amerikalijn</em>) for stronger
+                LLM guidance. Swapping schemas is a one-line import change in <code>bulletins.py</code> — an A/B
+                test of annotation guidelines, not a refactor.</p>
+
+            <h2>Stage 2 — relation extraction as multiple choice</h2>
+            <p>With entities in hand, stage 2 (<code>src/RelationE/</code>) asks the question historians actually
+                care about: <strong>who did what to whom?</strong> The relation schema
+                (<code>dataLayer/schema.py</code>) is the source of truth and self-validates via
+                <code>validate_schema()</code>: <strong>33 fine-grained relations</strong>, grouped into <strong>14
+                    coarse relations</strong> across <strong>7 categories</strong> (governance, conflict, legal,
+                event, sports, financial, spatial_media). Examples: <code>signed</code>, <code>sunk_by</code>,
+                <code>met_with</code>, <code>capital_of</code>, <code>played_for</code>. Each relation declares its
+                allowed <code>(subject_type, object_type)</code> pairs and whether it is symmetric
+                (<code>met_with</code>, <code>negotiated_with</code>, <code>allied_with</code>,
+                <code>competed_against</code>). And <code>no_relation</code> is an <strong>abstention option, not a
+                    relation</strong> — a distinction that turns out to be surprisingly load-bearing.</p>
+
+            <img src="../img/radio_re.svg" alt="Relation extraction: marked contexts, multiple-choice questions and the decision gate"
+                style="width:100%; border-radius: 12px; margin: 1.5rem 0;">
+
+            <p>The classifier here is <strong>JEV</strong> (called through the <code>typesafe-sdk</code> client),
+                and the framing is the clever part: relation extraction becomes a <strong>multiple-choice
+                    exam</strong>. First, candidate pairs are generated for every mention pair within a distance
+                budget (<code>--max-sentence-distance 0</code>, <code>--max-character-distance 300</code> by
+                default), filtered to type-compatible relations in either direction, with same-entity and
+                nested-same-type pairs suppressed. Pairs that share a context are grouped so the bulletin text is
+                sent to JEV <em>once</em>, with mentions wrapped in explicit tags —
+                <code>&lt;e id="e3" type="Person"&gt;Ribbentrop&lt;/e&gt;</code> — where the closing tag repeats the
+                id because mentions can nest. Each pair then becomes one multiple-choice question with one option
+                per relation + direction, plus symmetric options, plus exactly one <code>no_relation</code>.
+                Questions are batched per request (<code>--max-questions 30</code>) and JEV returns
+                <strong>calibrated per-option probabilities</strong>.</p>
+
+            <p>The decision rule (<code>core/decision.py</code>) is simple and strict: the probabilities of both
+                directions of a relation are summed, and the best relation is accepted only if
+                <code>p_relation ≥ min_probability</code> <em>and</em>
+                <code>p_relation − p_no_relation ≥ min_margin</code>. If the model is not confident enough, the pair
+                gets no relation — the abstention path, not a failure. Direction is <strong>semantic, not
+                    textual</strong>: head and tail are chosen by the classifier from the options, not by which
+                mention came first in the text. The earlier mention is merely <code>entity1</code> of the candidate
+                pair.</p>
+
+            <p>One output record per bulletin (abridged) shows what comes out — including the
+                <code>pairs</code> array that preserves every pair's full probability distribution:</p>
+
+            <div class="code-sample">
+                <pre><code>{
+  "bulletin_id": "anp:radio:1939:09:03:001",
+  "schema_level": "fine",
+  "model": "jev-latest",
+  "n_mentions": 14, "n_pairs": 23, "n_requests": 2, "n_relations": 6,
+  "relations": [
+    {
+      "pair_id": "P00007", "relation": "signed",
+      "coarse": "party_to_legal", "category": "legal",
+      "head": {"mention_id": "e3", "text": "Ribbentrop", "type": "Person"},
+      "tail": {"mention_id": "e9", "type": "LegalDocument",
+               "text": "Russisch-Duitsche niet-aanvalsverdrag"},
+      "probability": 0.78, "p_no_relation": 0.12, "margin": 0.66,
+      "direction_confidence": 0.95,
+      "evidence": {"text": "… teekende het Russisch-Duitsche niet-aanvalsverdrag …"}
+    }
+  ],
+  "pairs": [
+    {"pair_id": "P00007", "entity1": "e3", "entity2": "e9",
+     "top": [{"option": "signed__entity1_to_entity2", "p": 0.78},
+             {"option": "no_relation", "p": 0.12}]}
+  ]
+}</code></pre>
+            </div>
+
+            <p>That <code>pairs</code> array is a cost-discipline trick worth stealing: because every pair's full
+                distribution is cached in the output, you can <strong>re-tune decision thresholds offline, without
+                    re-calling JEV</strong> — and JEV calls are the expensive part. A <code>plan</code> command
+                gives a dry-run estimate of mention/pair/request counts before you spend anything, and a second
+                <strong>refine</strong> pass re-runs only the bulletins that produced too few relations, with wider
+                candidate settings, sending <em>only the pairs that were not decided before</em> — refinement is
+                incremental, never a full re-run.</p>
+
+            <p>Finally, <code>export</code> merges the NER record and the refined relations into one
+                <code>ner_re.jsonl</code> line per bulletin — including per-entity <code>status</code> fields
+                (<code>kept</code>, or the reason an entity was dropped: <code>unknown_type</code>,
+                <code>low_confidence</code>, <code>bad_offsets</code>, <code>duplicate_of:&lt;id&gt;</code>) — and
+                emits <strong>Label Studio pre-annotation tasks</strong> with a matching labeling-interface config.
+                Everything arrives as <em>predictions</em> the reviewer accepts or corrects. If that sounds
+                familiar, it is the same human-in-the-loop philosophy behind my earlier post on <a
+                    href="annotation_tool.html">auditing LLM extractions locally</a> — the two projects share one
+                conviction: <strong>model output is a proposal, not a fact.</strong></p>
+
+            <h2>Design decisions that made the difference</h2>
+            <p>A few invariants run through the whole codebase, and they are the difference between a demo and a
+                research pipeline:</p>
+            <ul>
+                <li><strong>Strict evidence policy.</strong> Both LLM stages are told the bulletin text is source
+                    material, never instructions, and must not use outside historical knowledge. Relations require
+                    explicit textual support; there is an evidence span attached to every accepted relation.</li>
+                <li><strong>Offset integrity is enforced, not assumed.</strong> LLM-computed character offsets are
+                    repaired when the surface string can be found nearby — and a residual mismatch raises instead of
+                    silently shipping bad spans. Every offset survives a <code>text[start:end] == text</code> check.</li>
+                <li><strong>Provenance everywhere.</strong> <code>text_org</code> keeps the pre-cleaning text, and
+                    the <code>model</code> field records which model produced each annotation. Years from now, every
+                    number in the dataset can still be traced to its origin.</li>
+                <li><strong>Resumability by default.</strong> Append-only JSONL and per-bulletin caching at every
+                    stage, so crashes and re-runs are cheap.</li>
+                <li><strong>Cost discipline.</strong> Dry-run planning, shared contexts across questions, batched
+                    requests, and cached probability distributions that make threshold tuning a local operation.</li>
+            </ul>
+
+            <h2>Limitations and what comes next</h2>
+            <p>Being honest about limits is part of the design. There is <strong>no cross-bulletin entity
+                    resolution</strong>: mention ids identify occurrences within one bulletin, and linking
+                "Chamberlain" across thousands of bulletins into one real-world person is deliberately left to the
+                downstream knowledge-graph repository, where it belongs. The RE schema keys on the six top-level
+                entity types only — subtype-aware relations are a possible extension. And the requested model name
+                is recorded rather than the exact served version, a traceability gap worth closing.</p>
+
+            <p>The next stage, <strong>radio-bulletin-kg</strong>, consumes the JSONL this pipeline emits and builds
+                the actual graph with NetworkX and RDF/SPARQL — the point where "Ribbentrop signed the
+                Russo-German non-aggression pact" stops being a sentence in a scanned bulletin and becomes a queryable
+                edge in a historical knowledge network spanning 1939.</p>
+
+            <h2>Getting started</h2>
+            <p>The repository needs Python ≥ 3.11 (it uses <code>X | Y</code> unions and <code>typing.Self</code>)
+                and runs with <code>uv</code>. After obtaining the Textract JSONL from Delpher data and setting
+                <code>OPENAI_API_KEY</code> / <code>TYPESAFE_API_KEY</code> in a <code>.env</code>, the three stages
+                are three commands:</p>
+
+            <div class="code-sample">
+                <pre><code># Stage 0 — OCR reconstruction + cleaning in one runner
+uv run python -m src.preprocessing.run_ocr_pipeline \
+  --input  data/bulletins_dataset.jsonl \
+  --raw    data/bulletins_text_raw.jsonl \
+  --output data/bulletins_text_cleaned.jsonl \
+  --lex_path data/anp_lexicon.txt
+
+# Stage 1 — NER (resumable; --limit for a smoke test)
+uv run python -m src.NER.run \
+  --input data/bulletins_text_cleaned.jsonl \
+  --entity-output data/entity_annotations_raw.jsonl \
+  --limit 10
+
+# Stage 2 — plan (dry-run cost estimate), then extract
+uv run python -m src.RelationE.cli plan  --input data/entity_annotations_raw.jsonl --level fine --limit 5
+uv run python -m src.RelationE.cli extract --input data/entity_annotations_raw.jsonl \
+  --out data/relations.jsonl --level fine --min-probability 0.5 --min-margin 0.0</code></pre>
+            </div>
+
+            <p>A <code>schema-check</code> command reports which entity types are present in your data and which
+                relations can never fire given those types — a five-second sanity check that has saved me from more
+                than one misconfigured run.</p>
+
+            <h2>Closing thoughts</h2>
+            <p>The biggest lesson from this project: <strong>the pipeline is only as trustworthy as its most
+                boring stage</strong>. The LLM gets the attention, but line reconstruction tolerances, lexicon
+                thresholds and offset assertions are what make the structured output defensible. When historical
+                source material is involved, "mostly right" is not a standard you can ship — every span and every
+                relation has to be traceable back to a scanned page from 1939. That is exactly what the JSONL
+                contract between <code>radio-bulletin-ie</code> and <code>radio-bulletin-kg</code> is designed to
+                guarantee.</p>
+
+            <hr style="margin: 2rem 0; border-color: rgba(255,255,255,0.1);">
+            <p><em>About the author: Mohammad Imam — researcher working on interpretable and resource-efficient machine
+                    learning. Learn more on the <a href="../index.html" target="_blank">personal site</a>.</em></p>
+        </div>
+    </main>
+
+    <script>
+        // Theme handling
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+</body>
+
+</html>

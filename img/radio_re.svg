@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" role="img" aria-label="Stage 2 relation extraction">
+<title>Stage 2 relation extraction</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker><marker id="arrSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<rect x="1" y="1" width="1198" height="758" rx="16" fill="#0f172a" stroke="rgba(56,189,248,0.35)" stroke-width="1.5"/>
+<text x="600.0" y="42" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="21" fill="#38bdf8" text-anchor="middle" font-weight="700">Stage 2 — relation extraction as multiple choice</text>
+<text x="600.0" y="68" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="middle">33 fine relations → 14 coarse groups → 7 categories · no_relation is an abstention option, not a relation</text>
+<rect x="40" y="96" width="560" height="250" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.0">MARKED CONTEXT — mentions wrapped in tags (nested-safe)</text>
+<rect x="56" y="136" width="528" height="108" rx="8" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="72" y="166" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12.5" fill="#94a3b8" text-anchor="start">&lt;e id="e3" type="Person"&gt;Ribbentrop&lt;/e&gt; teekende het</text>
+<text x="72" y="188" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12.5" fill="#f87171" text-anchor="start">&lt;e id="e9" type="LegalDocument"&gt;Russisch-Duitsche</text>
+<text x="72" y="210" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12.5" fill="#f87171" text-anchor="start">niet-aanvalsverdrag&lt;/e&gt; …</text>
+<rect x="59.25" y="269.0" width="181.5" height="22" rx="11.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="150" y="283.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#38bdf8" text-anchor="middle">max_sentence_distance = 0</text>
+<rect x="251.8" y="269.0" width="200.4" height="22" rx="11.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="352" y="283.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#38bdf8" text-anchor="middle">max_character_distance = 300</text>
+<text x="56" y="316" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">candidate pairs: type-compatible in either direction · same-entity and</text>
+<text x="56" y="334" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">nested-same-type pairs suppressed · shared context sent to JEV only once</text>
+<line x1="600" y1="220" x2="640" y2="220" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="642" y="96" width="518" height="250" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="658" y="122" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.0">JEV REQUEST — one pair = one multiple-choice question</text>
+<text x="658" y="150" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start" font-weight="600">P00007 · relation between e3 and e9?</text>
+<rect x="658" y="166" width="240" height="16" rx="5" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="658" y="166" width="187.20000000000002" height="16" rx="5" fill="rgba(74,222,128,0.35)" stroke="#4ade80" stroke-width="1"/>
+<text x="908" y="178" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11.5" fill="#e2e8f0" text-anchor="start">signed__entity1_to_entity2</text>
+<text x="1144" y="178" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#4ade80" text-anchor="end">p = 0.78</text>
+<rect x="658" y="196" width="240" height="16" rx="5" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="658" y="196" width="28.799999999999997" height="16" rx="5" fill="rgba(148,163,184,0.35)" stroke="#94a3b8" stroke-width="1"/>
+<text x="908" y="208" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">no_relation (abstention)</text>
+<text x="1144" y="208" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="end">p = 0.12</text>
+<text x="658" y="238" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#64748b" text-anchor="start">… one option per relation + direction,</text>
+<text x="658" y="258" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11" fill="#64748b" text-anchor="start">   plus symmetric options</text>
+<text x="658" y="322" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">questions are batched per request (--max-questions) · per-option</text>
+<text x="658" y="340" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">probabilities come back calibrated</text>
+<rect x="40" y="372" width="1120" height="118" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="400" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">DECISION (per pair)</text>
+<text x="56" y="428" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="14" fill="#e2e8f0" text-anchor="start">accept iff  p_relation ≥ min_probability (0.5)  AND  p_relation − p_no_relation ≥ min_margin</text>
+<rect x="703.75" y="448.0" width="472.5" height="28" rx="14.0" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.5)" stroke-width="1"/>
+<text x="940" y="466.14" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11.5" fill="#4ade80" text-anchor="middle">✓ signed · p = 0.78 · margin = 0.66 · direction_confidence = 0.95</text>
+<text x="56" y="468" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">direction is semantic: head/tail chosen by the classifier,</text>
+<text x="56" y="484" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">not by mention order in the text</text>
+<rect x="40" y="516" width="1120" height="200" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="544" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.5">AFTER THE FIRST PASS</text>
+<rect x="56" y="560" width="330" height="132" rx="10" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="72" y="586" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start" font-weight="600">relations.jsonl</text>
+<text x="72" y="610" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">pairs array keeps the full</text>
+<text x="72" y="629" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">probability distribution →</text>
+<text x="72" y="648" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">thresholds re-tuned offline,</text>
+<text x="72" y="667" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">no new JEV calls needed</text>
+<rect x="424" y="560" width="330" height="132" rx="10" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="440" y="586" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start" font-weight="600">refine — second pass</text>
+<text x="440" y="610" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">bulletins with &lt; min-relations</text>
+<text x="440" y="629" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">re-run with wider settings;</text>
+<text x="440" y="648" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">only undecided pairs sent,</text>
+<text x="440" y="667" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">cost is incremental</text>
+<rect x="792" y="560" width="330" height="132" rx="10" fill="#0b1424" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="808" y="586" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#e2e8f0" text-anchor="start" font-weight="600">export</text>
+<text x="808" y="610" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">ner_re.jsonl (NER + RE</text>
+<text x="808" y="629" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">combined) + Label Studio</text>
+<text x="808" y="648" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">tasks as pre-annotations</text>
+<text x="808" y="667" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#94a3b8" text-anchor="start">for human review</text>
+<line x1="386" y1="626" x2="424" y2="626" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="754" y1="626" x2="792" y2="626" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<text x="600" y="720" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#64748b" text-anchor="middle">“Trust but Verify” — the Label Studio tasks plug into the human-audit workbench from the annotation-tool post</text>
+</svg>

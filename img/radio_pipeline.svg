@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" role="img" aria-label="radio-bulletin-ie pipeline at a glance">
+<title>radio-bulletin-ie pipeline at a glance</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/></marker><marker id="arrSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<rect x="1" y="1" width="1198" height="658" rx="16" fill="#0f172a" stroke="rgba(56,189,248,0.35)" stroke-width="1.5"/>
+<text x="600.0" y="42" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="21" fill="#38bdf8" text-anchor="middle" font-weight="700">radio-bulletin-ie — pipeline at a glance</text>
+<text x="600.0" y="68" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13.5" fill="#94a3b8" text-anchor="middle">OCR reconstruction → LLM NER → relation extraction · the JSONL it emits feeds the radio-bulletin-kg repo</text>
+<rect x="40" y="112" width="200" height="210" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="138" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">SOURCE</text>
+<text x="56" y="164" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="15.5" fill="#e2e8f0" text-anchor="start" font-weight="600">ANP radio bulletins</text>
+<text x="56" y="183" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="start">1939 subset (KB / Delpher)</text>
+<circle cx="60" cy="207.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="212" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">~1.47M typescripts</text>
+<circle cx="60" cy="227.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="232" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">1937–1984 · Dutch</text>
+<circle cx="60" cy="247.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="252" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">AWS Textract word boxes</text>
+<rect x="52.10000000000001" y="286.0" width="175.79999999999998" height="24" rx="12.0" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="140" y="301.96" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="11" fill="#38bdf8" text-anchor="middle">bulletins_dataset.jsonl</text>
+<line x1="240" y1="217.0" x2="282" y2="217.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="283" y="112" width="258" height="210" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="283" y="112" width="258" height="34" rx="12" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="299" y="135" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#38bdf8" text-anchor="start" font-weight="700">STAGE 0 · PREPROCESSING</text>
+<text x="299" y="170" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">ocr2text — word boxes →</text>
+<text x="299" y="188" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">lines → paragraphs</text>
+<text x="299" y="210" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">clean — lexicon filter, noise</text>
+<text x="299" y="228" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">strip, section-header tags</text>
+<text x="299" y="250" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">outputs</text>
+<rect x="303.9" y="261.5" width="112.2" height="21" rx="10.5" fill="rgba(129,140,248,0.12)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
+<text x="360" y="275.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#818cf8" text-anchor="middle">text_raw.jsonl</text>
+<rect x="291.3" y="287.5" width="137.39999999999998" height="21" rx="10.5" fill="rgba(129,140,248,0.12)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
+<text x="360" y="301.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#818cf8" text-anchor="middle">text_cleaned.jsonl</text>
+<line x1="541" y1="217.0" x2="583" y2="217.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="584" y="112" width="258" height="210" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="584" y="112" width="258" height="34" rx="12" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="600" y="135" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#38bdf8" text-anchor="start" font-weight="700">STAGE 1 · NER</text>
+<text x="600" y="170" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">LLM + Structured Outputs</text>
+<text x="600" y="188" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">6 entity types + subtypes,</text>
+<text x="600" y="206" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">bulletin topics (multi-label)</text>
+<text x="600" y="228" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">chunk 1000 chars · offsets</text>
+<text x="600" y="246" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">repaired &amp; re-validated</text>
+<text x="600" y="271" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="11.5" fill="#94a3b8" text-anchor="start">output</text>
+<rect x="589.8" y="282.0" width="200.4" height="22" rx="11.0" fill="rgba(129,140,248,0.12)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
+<text x="690" y="296.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#818cf8" text-anchor="middle">entity_annotations_raw.jsonl</text>
+<line x1="842" y1="217.0" x2="884" y2="217.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="885" y="112" width="275" height="210" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<rect x="885" y="112" width="275" height="34" rx="12" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+<text x="901" y="135" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#38bdf8" text-anchor="start" font-weight="700">STAGE 2 · RELATION EXTRACTION</text>
+<text x="901" y="170" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">candidate pairs → JEV batches</text>
+<text x="901" y="188" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">(multiple choice, calibrated)</text>
+<text x="901" y="210" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">decision: p ≥ min_probability</text>
+<text x="901" y="228" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">and margin over no_relation</text>
+<text x="901" y="250" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" fill="#e2e8f0" text-anchor="start">refine — undecided pairs only</text>
+<rect x="899.25" y="263.0" width="181.5" height="22" rx="11.0" fill="rgba(129,140,248,0.12)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
+<text x="990" y="277.78" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="10.5" fill="#818cf8" text-anchor="middle">relations(_refined).jsonl</text>
+<line x1="1022" y1="322" x2="1022" y2="356" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+<rect x="885" y="356" width="275" height="150" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="901" y="382" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">EXPORT</text>
+<circle cx="905" cy="403.75" r="2.6" fill="#38bdf8"/>
+<text x="915" y="408" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">ner_re.jsonl — combined</text>
+<circle cx="905" cy="422.75" r="2.6" fill="#38bdf8"/>
+<text x="915" y="427" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">NER + RE per bulletin</text>
+<circle cx="905" cy="441.75" r="2.6" fill="#38bdf8"/>
+<text x="915" y="446" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">Label Studio pre-annotation</text>
+<circle cx="905" cy="460.75" r="2.6" fill="#38bdf8"/>
+<text x="915" y="465" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">tasks for human review</text>
+<line x1="885" y1="431.0" x2="843" y2="431.0" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+<rect x="545" y="356" width="298" height="150" rx="12" fill="rgba(129,140,248,0.08)" stroke="rgba(129,140,248,0.5)" stroke-width="1" stroke-dasharray="7,5"/>
+<text x="561" y="382" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#818cf8" text-anchor="start" font-weight="700" letter-spacing="1.5">DOWNSTREAM</text>
+<text x="561" y="408" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="15.5" fill="#e2e8f0" text-anchor="start" font-weight="600">radio-bulletin-kg</text>
+<text x="561" y="428" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="start">(separate companion repository)</text>
+<circle cx="565" cy="447.75" r="2.6" fill="#38bdf8"/>
+<text x="575" y="452" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">NetworkX graph + RDF / SPARQL</text>
+<circle cx="565" cy="466.75" r="2.6" fill="#38bdf8"/>
+<text x="575" y="471" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">contract: one JSONL record</text>
+<circle cx="565" cy="485.75" r="2.6" fill="#38bdf8"/>
+<text x="575" y="490" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">per bulletin — entities + relations</text>
+<rect x="40" y="356" width="445" height="150" rx="12" fill="#1e293b" stroke="rgba(148,163,184,0.28)" stroke-width="1"/>
+<text x="56" y="382" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12" fill="#38bdf8" text-anchor="start" font-weight="700" letter-spacing="1.5">DESIGN INVARIANTS</text>
+<circle cx="60" cy="403.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="408" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">strict evidence — bulletin text is source material, never instructions</text>
+<circle cx="60" cy="424.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="429" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">offset integrity enforced: text[start:end] == mention text</text>
+<circle cx="60" cy="445.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="450" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">resumable everywhere — per-bulletin cache, append-only JSONL</text>
+<circle cx="60" cy="466.75" r="2.6" fill="#38bdf8"/>
+<text x="70" y="471" font-family="Inter,'Segoe UI',Arial,Helvetica,sans-serif" font-size="12.5" fill="#e2e8f0" text-anchor="start">cost discipline — dry-run plan, shared contexts, cached pair probabilities</text>
+<text x="600" y="640" font-family="'Fira Code','JetBrains Mono','SFMono-Regular',Consolas,monospace" font-size="12" fill="#64748b" text-anchor="middle">bulletins_dataset → text_raw → text_cleaned → entity_annotations_raw → relations → relations_refined → ner_re.jsonl</text>
+</svg>
